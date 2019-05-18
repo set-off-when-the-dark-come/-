@@ -1,0 +1,30 @@
+<view class='containerPage'>
+<view class='Main'>
+
+  <view class='HeadDataAndAddress'>
+    <text class='date'>{{date}}</text>
+    <image class='addressImg' src='/image/DecorationIcon/位置.png'></image>
+    <text class='address'>{{address}}</text>
+  </view>
+  
+  <view class='MainText'>
+    <view class='line self1'></view>
+    <text class='first'>你已经走过</text>
+    <text class='Count'>{{cityCount}}</text>
+    <text class='second'>座城市</text>
+    <view class='line self2'></view>
+  </view>
+
+
+  <view class='JumpButton'>
+    <button bindtap="SeePs">
+      <image src='/image/DecorationIcon/放大镜.png'></image>
+      <text>看留言</text>
+    </button>
+    <button bindtap='WritePs'>
+      <image src='/image/DecorationIcon/笔.png'></image>
+      <text>写留言</text>
+    </button>
+  </view>
+</view>
+</view>

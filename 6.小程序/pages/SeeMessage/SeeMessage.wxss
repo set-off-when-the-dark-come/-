@@ -1,0 +1,50 @@
+.Page{
+  background-color: #abaaaa;
+}
+.AMessage{
+  background-color: #fff;
+  padding-left: 55rpx;
+  padding-right: 55rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  margin-bottom: 5rpx;
+}
+
+.Address{
+  height: 50rpx;
+  padding-left: 50rpx;
+  padding-top: 15rpx;
+  padding-bottom: 20rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #abaaaa;
+}
+
+.MainIamge{
+  width: 650rpx;
+  height: 600rpx;
+  padding: 0rpx;
+  margin: 0rpx;
+}
+
+.TitleAndName{
+  display: flex;
+  justify-content: space-between ;
+  align-items: center;
+}
+.Title{
+  margin-left: -420rpx;
+}
+.TitleIcon{
+  width: 25rpx;
+  height: 25rpx;
+}
+text{
+  margin-left: 5rpx;
+  font-size: 18rpx;
+  color: #333333;
+}
+
+.Date{
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,0 +1,46 @@
+{
+  "pages":[
+    "pages/Main/Main",
+    "pages/Activity/Activity",
+    "pages/Manage/Manage",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/history/history",
+    "pages/ActivityContent/ActivityContent",
+    "pages/Setting/Setting",
+    "pages/PersonInfo/PersonInfo",
+    "pages/WriteMessage/WriteMessage",
+    "pages/SeeMessage/SeeMessage"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Wet",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar":{
+    "color": "#dbdbdb",
+    "selectedColor": "black",
+    "backgroundColor": "#fff",
+    "list":[
+      {
+        "pagePath":"pages/Activity/Activity",
+        "text": "活动",
+        "iconPath": "image/TabIcon/Activity.png",
+        "selectedIconPath":"image/TabIcon/selectedActivity.png"
+      },
+      {
+        "pagePath":"pages/Main/Main",
+        "text":"主页",
+        "iconPath":"image/TabIcon/Main.png",
+        "selectedIconPath":"image/TabIcon/selectedMain.png"
+      },
+      {
+        "pagePath": "pages/Manage/Manage",
+        "text": "消息",
+        "iconPath": "image/TabIcon/Manage.png",
+        "selectedIconPath": "image/TabIcon/selectedManage.png"
+      }
+    ]
+  }
+}

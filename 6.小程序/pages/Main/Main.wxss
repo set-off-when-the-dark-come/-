@@ -1,0 +1,95 @@
+.Main{
+  height: 1100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+
+
+.HeadDataAndAddress
+{
+  height: 130rpx;
+}
+.date{
+  font-size: 100rpx;
+  font-weight: lighter;
+}
+.address{
+  margin-left: 8rpx;
+  font-size: 30rpx;
+  font-weight: lighter;
+  letter-spacing: 4rpx;
+  color: #333333;
+}
+.addressImg{
+  margin-left: 30rpx;
+  width: 20rpx;
+  height: 30rpx;
+}
+
+.MainText{
+  height: 700rpx;
+  width: 400rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.first{
+  writing-mode: vertical-rl;
+  display: block;
+  margin-left:100rpx;
+}
+.second{
+  writing-mode: vertical-rl;
+  display: block;
+  margin-left: -100rpx;
+}
+.Count{
+  display: block;
+  font-size: 90rpx;
+}
+.line{
+  display: block;
+  width: 1rpx;
+  height: 110rpx;
+  background-color: #666666;
+}
+.self1{
+  margin-left: 180rpx;
+}
+.self2{
+  margin-left: -180rpx;
+}
+
+
+
+.JumpButton{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 90rpx;
+  width: 500rpx;
+}
+.JumpButton image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.JumpButton text{
+  font-size: 24rpx;
+  color: #fff;
+}
+.JumpButton button{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #05cebd;
+  border-radius: 40rpx;
+  width: 185rpx;
+  height: 80rpx;
+  box-shadow: 10rpx 5rpx 10rpx #9a9ea7
+}

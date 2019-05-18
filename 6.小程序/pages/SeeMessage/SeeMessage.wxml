@@ -1,0 +1,25 @@
+<view class='Page'>
+<view class='Address'>
+  <image class='TitleIcon ' src='/image/DecorationIcon/位置.png'></image>
+  <text>{{address}}</text>
+</view>
+<scroll-view scroll-y="true" style='height:1140rpx'>
+<view wx:for="{{MessageList}}" wx:for-item="item" class='AMessage' >
+    <view class='MainImage'>
+          <image src='{{item.img}}'></image>
+    </view>
+
+    <view class='TitleAndName'>
+      <image class='TitleIcon' src='/image/DecorationIcon/名称.png'></image>
+      <text class='Title'>{{item.title}}</text>
+      <text>{{item.nickname}}</text>
+    </view>
+
+    <view class='Date'>
+      <image class='TitleIcon' src='/image/DecorationIcon/日期.png'></image>
+      <text>{{item.date}}</text>
+    </view>
+</view>
+</scroll-view>
+
+</view>
