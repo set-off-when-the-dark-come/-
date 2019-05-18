@@ -36,9 +36,8 @@
   justify-content: space-between ;
   align-items: center;
 }
-
 .Title{
-  margin-left: -410rpx;
+  margin-left: -390rpx;
 }
 .TitleIcon{
   width: 28rpx;

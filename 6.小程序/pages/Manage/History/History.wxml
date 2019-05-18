@@ -6,7 +6,7 @@
           <image class="userHead" src="{{item.userHeadSrc}}"/>
           <text class="userName">{{item.userName}}</text>
           <image class="iconLocation" src="{{iconLocation}}"/>
-          <text class="location">{{item.dateLocation}}</text>
+          <text class="location">{{item.dateLocation}}></text>
         </view>
       </view>
     </block>
