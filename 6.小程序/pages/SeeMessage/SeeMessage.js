@@ -33,6 +33,14 @@ Page({
       url: Url,
     })
   },
+
+  jumpToDetail:function()
+  {
+    wx.navigateTo({
+      url:"../MessageDetail/MessageDetail",
+      
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

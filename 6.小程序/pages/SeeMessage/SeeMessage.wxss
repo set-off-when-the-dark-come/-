@@ -20,7 +20,7 @@
 }
 
 .MainIamge{
-  width: 650rpx;
+ 
   height: 600rpx;
   padding: 0rpx;
   margin: 0rpx;

@@ -4,7 +4,7 @@
   <text>{{address}}</text>
 </view>
 <scroll-view scroll-y="true" style='height:1140rpx'>
-<view wx:for="{{MessageList}}" wx:for-item="item" class='AMessage' >
+<view wx:key wx:for="{{MessageList}}" wx:for-item="item" class='AMessage' bindtap="jumpToDetail" >
     <view class='MainImage'>
           <image src='{{item.img}}'></image>
     </view>

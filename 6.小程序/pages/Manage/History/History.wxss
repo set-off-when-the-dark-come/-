@@ -1,0 +1,84 @@
+
+.UserInformationContainer
+{
+  background-color:white;
+  width:94%;
+  height: 150rpx;
+  position:relative;
+  left:3%;
+  border:0rpx;
+  border-top: 1px;
+  border-color: #ada9a9;
+  border-style:solid;
+  margin-top:10rpx;
+}
+.userHead
+{
+  width:97rpx;
+  height:97rpx;
+  border-radius: 100%;
+  position:absolute;
+  top:25rpx;
+}
+.userName
+{
+  color:black;
+  font-family: MicrosoftYaHeiLight;
+  font-size:29rpx;
+  text-align: left;
+  position:absolute;
+  top:35rpx;
+  left:126rpx;
+}
+.location
+{
+  color:black;
+  font-family: MicrosoftYaHeiLight;
+  text-align: left;
+  font-size:29rpx;
+  position:absolute;
+  left:570rpx;
+  top:76rpx;
+}
+.iconLocation
+{
+  position:absolute;
+  left:530rpx;
+  top:85rpx;
+  width:30rpx;
+  height:30rpx;
+}
+.slideContainer
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position:fixed;
+  top:1000rpx;
+  left:337rpx;
+}
+
+.slideImage1
+{
+  width:75rpx;
+  height:30rpx;
+}
+
+.slideImage2
+{
+  width:57rpx;
+  height:22rpx;
+}
+.slideImage3
+{
+  width:33rpx;
+  height:13rpx;
+}
+.slideImgContainer
+{
+  margin:-1;
+}
+.listenMessageContainer
+{
+  display: block;
+}

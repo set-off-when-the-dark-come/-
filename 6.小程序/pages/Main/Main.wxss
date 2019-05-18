@@ -1,5 +1,5 @@
 .Main{
-  height: 1100rpx;
+  height: 1050rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,7 +31,7 @@
 }
 
 .MainText{
-  height: 700rpx;
+  height: 75%;
   width: 400rpx;
   display: flex;
   flex-direction: column;

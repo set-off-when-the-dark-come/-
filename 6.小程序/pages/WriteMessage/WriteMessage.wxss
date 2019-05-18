@@ -1,0 +1,64 @@
+.iconMessageTitle
+{
+  width:28rpx;
+  height: 32rpx;
+}
+
+.messageTitle
+{
+  display: inline-block;
+  width:80%;
+  margin-left: 20rpx;
+  position:relative;
+  top:7rpx;
+}
+.messageTitleContainer
+{
+  position:relative;
+  width:92%;
+  left:4%;
+}
+.messageBox
+{
+  width:92%;
+  position:relative;
+  left:4%;
+  margin-top:20rpx;
+  border:0rpx;
+  border-left:1px;
+  border-color: #ada9a9;
+  border-style:solid;
+}
+.messageContainer
+{
+  border:0rpx;
+  border-right:1px;
+  border-color: #ada9a9;
+  border-style:solid;
+  width:95%;
+}
+.JumpButton{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 90rpx;
+  width: 500rpx;
+}
+.JumpButton image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.JumpButton text{
+  font-size: 24rpx;
+  color: #fff;
+}
+.JumpButton button{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #05cebd;
+  border-radius: 40rpx;
+  width: 185rpx;
+  height: 80rpx;
+  box-shadow: 10rpx 5rpx 10rpx #9a9ea7
+}

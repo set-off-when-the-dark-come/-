@@ -1,0 +1,19 @@
+<view class="wrieteMessagePage">
+  <view class="imageContainer">
+  </view>
+  <view class="messageContainer">
+    <view class="messageTitleContainer">
+      <image class="iconMessageTitle" src="{{iconMessageTitleDeriction}}"/>
+      <input class="messageTitle" type="text" placeholder='请输入你的标题'></input>
+    </view>
+    <view class="messageBox">
+      <textarea class="messageInput" type="text" placeholder="请输入你的留言"></textarea>
+    </view>
+    <view class="JumpButton">
+    <button bindtap="sendMessage">
+      <image src='/image/DecorationIcon/放大镜.png'></image>
+      <text>看留言</text>
+    </button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+<view class="listenListContainer">
+  <scroll-view scroll-y scroll-into-view='{{toView}}' style='height: {{scrollHeight}};'>
+    <block wx:key wx:for='{{msgList}}' wx:for-index="index">
+      <view class="listenMessageContainer"  bindtap='jumpToDetail'>
+        <view class="UserInformationContainer">
+          <image class="userHead" src="{{item.userHeadSrc}}"/>
+          <text class="userName">{{item.userName}}</text>
+          <image class="iconLocation" src="{{iconLocation}}"/>
+          <text class="location">{{item.dateLocation}}></text>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
