@@ -1,0 +1,27 @@
+<view class="MessageDetailPage">
+  <view class="MessageDetailContainer">
+    <img src="{{imageDeriction}}" class="messageImage"/>
+    
+    <view class="titleContainer">
+      <img class="titleIcon" src="{{titleIconDeriction}}"/>
+      <text class="titleText">{{title}}</text>
+    </view>
+    
+    <view class="messageContainer">
+      <text class="message">{{message}}</text>
+      <text class="userName">{{userName}}</text>
+      <img class="iconCalender" src="{{iconCalenderDirection}}"/>
+      <text class="date">{{date}}</text>
+    </view>
+    <view class="replyContainer">
+      <img class="iconReply" src="{{iconReply}}" bindtap="replyFunc"/>
+    </view>
+    <scroll-view class="commentContainer">
+      <view wx:key wx:for="{{commentList}}" wx:for-item="item" class="commentContainer">
+        <img class="commmentHead" src="{{item.headSrc}}"/>
+        <text class="commentDetail">{{item.comment}}</text>
+        <text class="commentDate">{{item.date}}}</text>
+      </view>
+    </scroll-view>
+  </view>
+</view>

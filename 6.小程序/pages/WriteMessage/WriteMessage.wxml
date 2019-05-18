@@ -1,19 +1,20 @@
-<view class="wrieteMessagePage">
-  <view class="imageContainer">
+<view class='containerPage'>
+  <view class='ChooseImage' bindtap='ChooseImage'>
+      <image class='centerCameraIcon' mode="widthFix" src='/image/DecorationIcon/camera.png'></image>
   </view>
-  <view class="messageContainer">
-    <view class="messageTitleContainer">
-      <image class="iconMessageTitle" src="{{iconMessageTitleDeriction}}"/>
-      <input class="messageTitle" type="text" placeholder='请输入你的标题'></input>
+
+
+  <view class='TitleAndContent' >
+    <view class='Title'>
+      <image class='Icon' src='/image/DecorationIcon/title.png'></image>
+      <input type="text" class='TitleInput'  placeholder='标题'>{{Message.title}}</input>
     </view>
-    <view class="messageBox">
-      <textarea class="messageInput" type="text" placeholder="请输入你的留言"></textarea>
+    <view class='Content'>
+      <input type='text' class='ContentInput' placeholder-class='ContentPlaceholder' placeholder='想说的话'>{             {Message.content}}</input>
     </view>
-    <view class="JumpButton">
-    <button bindtap="sendMessage">
-      <image src='/image/DecorationIcon/放大镜.png'></image>
-      <text>看留言</text>
+    <button class='CompleteButton' bindtap='CompleteInput'>
+      <image src='/image/DecorationIcon/writeMessage.png'></image>
+      <text>完成</text>
     </button>
-    </view>
   </view>
 </view>
