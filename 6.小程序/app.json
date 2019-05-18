@@ -11,7 +11,7 @@
     "pages/PersonInfo/PersonInfo",
     "pages/WriteMessage/WriteMessage",
     "pages/SeeMessage/SeeMessage",
-    "pages/MessageDetail/MessageDetail",
+    "pages/ShowDetail/ShowDetail",
     "pages/Manage/History/History"
   ],
   "window": {

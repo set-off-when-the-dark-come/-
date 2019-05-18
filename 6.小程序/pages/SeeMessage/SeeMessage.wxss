@@ -1,50 +1,57 @@
 .Page{
   background-color: #abaaaa;
 }
-.AMessage{
-  background-color: #fff;
-  padding-left: 55rpx;
-  padding-right: 55rpx;
-  padding-top: 20rpx;
-  padding-bottom: 20rpx;
-  margin-bottom: 5rpx;
-}
-
 .Address{
   height: 50rpx;
   padding-left: 50rpx;
   padding-top: 15rpx;
-  padding-bottom: 20rpx;
+  padding-bottom: 15rpx;
   background-color: #fff;
   border-bottom: 1rpx solid #abaaaa;
 }
-
-.MainIamge{
- 
-  height: 600rpx;
-  padding: 0rpx;
-  margin: 0rpx;
+.Address text{
+  font-size: 26rpx;
+  color:#333333;
 }
 
+
+.AMessage{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #fff;
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  margin-bottom: 6rpx;
+}
+
+.MainImage{
+  margin-bottom: 6rpx;
+  width: 100%;
+}
 .TitleAndName{
   display: flex;
   justify-content: space-between ;
   align-items: center;
 }
 .Title{
-  margin-left: -420rpx;
+  margin-left: -390rpx;
 }
 .TitleIcon{
-  width: 25rpx;
-  height: 25rpx;
+  width: 28rpx;
+  height: 28rpx;
 }
 text{
-  margin-left: 5rpx;
-  font-size: 18rpx;
-  color: #333333;
+  letter-spacing: 2rpx;
+  margin-left: 10rpx;
+  font-size: 20rpx;
+  color: #666666;
 }
 
 .Date{
+  margin-top:6rpx;
   display: flex;
   justify-content: flex-end;
 }

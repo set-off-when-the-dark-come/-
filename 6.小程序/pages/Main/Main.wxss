@@ -76,11 +76,11 @@
   width: 500rpx;
 }
 .JumpButton image{
-  width: 40rpx;
-  height: 40rpx;
+  width: 35rpx;
+  height: 35rpx;
 }
 .JumpButton text{
-  font-size: 24rpx;
+  font-size: 28rpx;
   color: #fff;
 }
 .JumpButton button{
