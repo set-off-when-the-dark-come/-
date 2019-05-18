@@ -5,7 +5,7 @@
   width: 95%;
   height: 40vh;
   background-color: #e2e2e2;
-  margin-bottom: 50rpx;
+  margin-bottom: 30rpx;
 }
 .centerCameraIcon{
   width: 10vh;
@@ -17,7 +17,7 @@
   width: 95%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .Title{
   display: flex;
@@ -29,20 +29,24 @@
   width: 36rpx;
   height: 36rpx;
 }
-.TitleInput{
-  
+text{
+  letter-spacing: 10rpx;
 }
 
 
 .ContentInput{
+  border-left: 1rpx #666666 solid;
+  border-right:1rpx #666666 solid;
+  padding: rpx;
+  margin-top: -185rpx;
   font-size:36rpx;
   font-weight: lighter;
-  min-height: 300rpx;
+  color:black;
 }
 .ContentPlaceholder{
-  min-height: 300rpx;
   font-weight: lighter;
-  background-color: #e2e2e2;
+  margin-left: 10rpx;
+  font-size: 32rpx; 
 }
 
 .CompleteButton{
