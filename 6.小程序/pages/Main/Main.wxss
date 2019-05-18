@@ -41,10 +41,12 @@
 
 .first{
   writing-mode: vertical-rl;
+  letter-spacing: 6rpx;
   display: block;
   margin-left:100rpx;
 }
 .second{
+  letter-spacing: 6rpx;
   writing-mode: vertical-rl;
   display: block;
   margin-left: -100rpx;

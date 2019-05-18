@@ -1,27 +1,32 @@
 <view class="MessageDetailPage">
   <view class="MessageDetailContainer">
-    <img src="{{imageDeriction}}" class="messageImage"/>
+    <image  src="{{Message.img}}"mode="widthFix" class="messageImage"></image>
     
     <view class="titleContainer">
-      <img class="titleIcon" src="{{titleIconDeriction}}"/>
-      <text class="titleText">{{title}}</text>
+      <image class="Icon" src="/image/DecorationIcon/title.png"></image>
+      <text class="titleText">{{Message.title}}</text>
     </view>
     
     <view class="messageContainer">
-      <text class="message">{{message}}</text>
-      <text class="userName">{{userName}}</text>
-      <img class="iconCalender" src="{{iconCalenderDirection}}"/>
-      <text class="date">{{date}}</text>
+      <text class="message">{{Message.content}}</text>
+      <text class="username">唯心主义蠢货</text>
+      <view class="Date">
+        <image class="Icon" src="/image/DecorationIcon/date.png"></image>
+        <text class="date">{{Message.date}}</text>
+      </view>
+    </view>
+
+
+    
+    <view wx:key wx:for="{{commentList}}" wx:for-item="item" class="commentContainer">
+      <text class="commentNickname">{{item.nickname}}:</text>
+      <view class='CommentAndDate'>
+         <text class="commentDetail">{{item.comment}}</text>
+         <text class="commentDate">{{item.date}}</text>
+      </view>
     </view>
     <view class="replyContainer">
-      <img class="iconReply" src="{{iconReply}}" bindtap="replyFunc"/>
+      <img class="Icon" src="/image/DecorationIcon/reply.png" bindtap="replyFunc"/>
     </view>
-    <scroll-view class="commentContainer">
-      <view wx:key wx:for="{{commentList}}" wx:for-item="item" class="commentContainer">
-        <img class="commmentHead" src="{{item.headSrc}}"/>
-        <text class="commentDetail">{{item.comment}}</text>
-        <text class="commentDate">{{item.date}}}</text>
-      </view>
-    </scroll-view>
   </view>
 </view>

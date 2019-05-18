@@ -5,13 +5,13 @@ const app = getApp();
 function initData(that) {
 
   msgList = [{
-    userHeadSrc: "../../../images/UI/userHead.png",
+    userHeadSrc: "/image/smoke.jpg",
     userName: "123123",
     dateLocation: "芙蓉隧道",
     id:1
   },
   {
-    userHeadSrc: "../../../images/UI/userHead.png",
+    userHeadSrc: "/image/smoke.jpg",
     userName: "name123123",
     dateLocation: "芙蓉隧道",
     id:2
@@ -32,7 +32,7 @@ Page({
    */
   data: {
     scrollHeight: '100vh',
-     iconLocation: "../../../images/UI/iconLocation.png"
+    iconLocation: "/image/DecorationIcon/location.png"
   },
 
   /**
@@ -40,13 +40,17 @@ Page({
    */
   onLoad: function (options) {
     initData(this);
+    wx.showNavigationBarLoading();
+    wx.setNavigationBarTitle({
+      title: '看过',
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    wx.hideNavigationBarLoading();
   },
 
   /**
