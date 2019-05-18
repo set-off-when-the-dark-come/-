@@ -1,51 +1,18 @@
-// pages/listenList/listenList.js
-var msgList = [];
-const app = getApp();
-
-function initData(that) {
-
-  msgList = [{
-    userHeadSrc: "../../../images/UI/userHead.png",
-    userName: "123123",
-    dateLocation: "芙蓉隧道",
-    id:1
-  },
-  {
-    userHeadSrc: "../../../images/UI/userHead.png",
-    userName: "name123123",
-    dateLocation: "芙蓉隧道",
-    id:2
-  },
-    {
-      userHeadSrc: "../../../images/UI/userHead.png",
-      userName: "name123123",
-      dateLocation: "芙蓉隧道",
-      id: 3
-    },
-  ]
-  that.setData({
-    msgList,
-  })
-}
+// pages/Manage/Setting/Setting.js
 Page({
-  jumpToDetail: function () {
-    wx.navigateTo({
-      url: '../../ShowDetail/ShowDetail',
-    })
-  },
+
   /**
    * 页面的初始数据
    */
   data: {
-    scrollHeight: '100vh',
-     iconLocation: "../../../images/UI/iconLocation.png"
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    initData(this);
+
   },
 
   /**

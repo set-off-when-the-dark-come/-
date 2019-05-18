@@ -1,0 +1,6 @@
+.messageImage
+{
+  position:relative;
+  width:84%;
+  left:8%;
+}

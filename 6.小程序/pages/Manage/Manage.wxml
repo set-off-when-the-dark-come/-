@@ -1,4 +1,28 @@
 <view class='containerPage'>
-
-  
+  <view class="userInformationContainer">
+    <image class="userHead" src="{{userHeadSrc}}"/>
+    <text class="userName">{{userName}}</text>
+    <text class="userDetail">{{userDetail}}</text>
+  </view>
+  <view class="seeContainer">
+    <image class="icon" src="{{iconSeeSrc}}"></image>
+    <view bindtap="jumpToSee">
+      <text>看过</text>
+    </view>
+    <image class="iconArrow" src="{{iconArrowSrc}}"/>
+  </view>
+   <view class="seeContainer">
+    <image class="icon" src="{{iconSaySrc}}"></image>
+    <view bindtap="jumpToSay">
+      <text>听过</text>
+    </view>
+    <image class="iconArrow" src="{{iconArrowSrc}}"/>
+  </view>
+   <view class="seeContainer settingContainer">
+    <image class="icon" src="{{iconSettingSrc}}"></image>
+    <view bindtap="jumpToSetting">
+      <text>设置</text>
+    </view>
+    <image class="iconArrow" src="{{iconArrowSrc}}"/>
+  </view>
 </view>
