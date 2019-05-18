@@ -1,0 +1,12 @@
+<view class='containerPage'>
+  <navigator url= '/pages/ActivityContent/ActivityContent' open-type='navigate'>
+    <view class="activityItem">
+      <image class="activityImage" src='/image/smoke.jpg'></image>
+      <view class="activityBrief">
+        <text class="activityName">芭蕾舞者的浪漫</text>
+        <text class="activityTime">2019.05.04——2019.05.06</text>
+        <text class="activityNum">20000153</text>
+      </view>
+    </view>
+  </navigator>
+</view>
