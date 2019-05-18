@@ -1,12 +1,4 @@
 <view class='containerPage'>
-  <view class="userInformationContainer">
-    <image class="userHead" src="{{userHeadSrc}}"/>
-    <text class="userName">{{userName}}</text>
-    <text class="userDetail">{{userDetail}}</text>
-  </view>
-  <view class="seeContainer">
-    <image class="iconContainer" src="{{iconSeeSrc}"></image>
-    <text>看过</text>
-    <image class="iconArrowContainer" src="{{iconArrowSrcl}}"/>
-  </view>
+
+  
 </view>
