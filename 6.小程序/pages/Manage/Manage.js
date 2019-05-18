@@ -7,12 +7,44 @@ Page({
   data: {
     userInfo:{},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    userHeadSrc:"../../images/UI/userHead.png",
+    userName:"唯心主义蠢货",
+    userDetail:"我的资料",
+    iconSeeSrc:"../../images/UI/iconSee.png",
+    iconArrowSrc:"../../images/UI/iconArrow.png",
+    iconSaySrc: "../../images/UI/iconSay.png",
+    iconSettingSrc: "../../images/UI/iconSetting.png",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+  jumpToSee:function()
+  {
+    wx:wx.navigateTo({
+      url: '../ShowDetail/ShowDetail',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+  jumpToSay: function () {
+    wx: wx.navigateTo({
+      url: '../ShowDetail/ShowDetail',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  jumpToSetting: function () {
+    wx: wx.navigateTo({
+      url: 'Setting/Setting',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
   onLoad: function () {
     wx.showNavigationBarLoading();
     wx.setNavigationBarTitle({

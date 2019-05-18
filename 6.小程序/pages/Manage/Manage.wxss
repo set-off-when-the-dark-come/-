@@ -1,18 +1,86 @@
-.PersonIcon
+.userInformationContainer
 {
-  display: flex;
-  flex-direction: row;
-  height: 180rpx;
-  justify-content: space-around;
-  align-items: center;
+  position:relative;
+  top:111rpx;
+  width:86%;
+  left:10%;
 }
-.Icon
+.userHead
 {
-  width: 100rpx;
-  height: 100rpx;
-  border-radius: 50%;
+  width:108rpx;
+  height:108rpx;
+  border-radius: 50px;
+  position: relative;
+  left:5rpx;
+  top:5rpx;
 }
-.nickName
+.userName
 {
-  color: #666666;
+  font-family: MicrosoftYaHeiLight;
+  font-size: 32rpx;
+  position:absolute;
+  top:12rpx;
+  left:141rpx;
+}
+
+.userDetail
+{
+    font-family: MicrosoftYaHeiLight;
+    font-size: 24rpx;
+    position:absolute;
+    top:75rpx;
+    left:141rpx;
+}
+.icon
+{
+  position:relative;
+  top:24rpx;
+  left:28rpx;
+  width:50rpx;
+  height:50rpx;
+}
+.seeContainer
+{
+  width:100%;
+  height:94rpx;
+  position:relative;
+  top:190rpx;
+  background-color:white;
+}
+.seeContainer  view text
+{
+  font-family: MicrosoftYaHeiLight;
+  width:85%;
+  font-size: 28rpx;
+ 
+}
+.seeContainer view
+{
+   position:relative;
+  left:56rpx;
+  top:13rpx;
+   border:0rpx;
+  border-top: 1px;
+  height:80rpx;
+  border-color: #ada9a9;
+  border-style:solid;
+  width:70%;
+  display: inline-block;
+}
+.iconArrow
+{
+  width:20rpx;
+  height:36rpx;
+  position:relative;
+  left:30rpx;
+  top:16rpx;
+}
+
+.settingContainer
+{
+  width:100%;
+  height:94rpx;
+  position:relative;
+  top:460rpx;
+  background-color:white;
 }
