@@ -38,7 +38,7 @@
         "selectedIconPath": "image/TabIcon/selectedMain.png"
       },
       {
-        "pagePath": "pages/Manage/History/History",
+        "pagePath": "pages/Manage/Manage",
         "text": "消息",
         "iconPath": "image/TabIcon/Manage.png",
         "selectedIconPath": "image/TabIcon/selectedManage.png"
