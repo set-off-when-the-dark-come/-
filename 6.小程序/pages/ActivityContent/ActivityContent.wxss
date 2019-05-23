@@ -46,15 +46,15 @@
   position:relative;
   left:60rpx;
   top:20rpx;
-   font-size: 40rpx;
+   font-size: 36rpx;
   font-style:light;
 }
 
 
 .icon
 {
-  width:56rpx;
-  height:56rpx;
+  width:45rpx;
+  height:45rpx;
   position:relative;
   top:15rpx;
   left:5rpx;
@@ -65,16 +65,16 @@
   width:86%;
   margin-top:20rpx;
   margin-bottom:20rpx;
-  border:0px;
+  /* border:0px;
   border-bottom: 1rpx;
   border-color: #666666;
-  border-style:solid;
+  border-style:solid; */
   position:relative;
   left:7%;
 }
 .title
 {
-  font-size:34rpx;
+  font-size:28rpx;
 }
 .titleContainer
 {
@@ -97,13 +97,14 @@
 {
   margin-top:15rpx;
   background-color:#e9e3e3;
+  line-height:50rpx;
 }
 .commentsTitle
 {
-  font-size: 34rpx; 
+  font-size: 30rpx; 
   margin-left:10rpx;
   margin-bottom:10rpx;
 }
 .ActivityLocation,.ActivityTime,.ActivityIntroductionContainer{
-  font-size:28rpx;
+  font-size:24rpx;
 }
