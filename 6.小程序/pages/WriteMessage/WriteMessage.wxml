@@ -10,7 +10,7 @@
       <input type="text" class='TitleInput'  placeholder='标题'>{{Message.title}}</input>
     </view>
     <view class='Content'>
-      <input type='text' class='ContentInput' placeholder-class='ContentPlaceholder' placeholder='想说的话'>{             {Message.content}}</input>
+      <textarea type='text' class='ContentInput' placeholder-class='ContentPlaceholder' placeholder='想说的话'>{{Message.content}}</textarea>
     </view>
     <button class='CompleteButton' bindtap='CompleteInput'>
       <image src='/image/DecorationIcon/writeMessage.png'></image>

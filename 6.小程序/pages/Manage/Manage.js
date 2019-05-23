@@ -23,7 +23,7 @@ Page({
   jumpToSee:function()
   {
     wx:wx.navigateTo({
-      url: '../ShowDetail/ShowDetail',
+      url: '../Manage/History/History',
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
@@ -31,7 +31,7 @@ Page({
   },
   jumpToSay: function () {
     wx: wx.navigateTo({
-      url: '../ShowDetail/ShowDetail',
+      url: '../Manage/History/History',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

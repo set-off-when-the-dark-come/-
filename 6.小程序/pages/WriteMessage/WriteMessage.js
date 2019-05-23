@@ -1,5 +1,4 @@
 var util = require('../../utils/util.js');
-
 Page({
 
   /**
@@ -106,7 +105,7 @@ Page({
 })
 function upload(page, path) {
   wx.uploadFile({
-    url: 'www.lonelywhale.xyz：10000／home/upload',
+    url: 'https://www.mywhale.xyz:80/home/upload',
     filePath: path[0],
     name: 'file',
     header: {

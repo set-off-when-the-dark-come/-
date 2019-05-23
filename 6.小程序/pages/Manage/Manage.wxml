@@ -14,14 +14,14 @@
    <view class="seeContainer">
     <image class="icon" src="{{iconSaySrc}}"></image>
     <view bindtap="jumpToSay">
-      <text>听过</text>
+      <text>说过</text>
     </view>
     <image class="iconArrow" src="{{iconArrowSrc}}"/>
   </view>
    <view class="seeContainer settingContainer">
     <image class="icon" src="{{iconSettingSrc}}"></image>
     <view bindtap="jumpToSetting">
-      <text>设置</text>
+      <text>关于我们</text>
     </view>
     <image class="iconArrow" src="{{iconArrowSrc}}"/>
   </view>

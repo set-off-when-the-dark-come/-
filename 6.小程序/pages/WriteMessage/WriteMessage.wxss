@@ -33,19 +33,21 @@ text{
   letter-spacing: 10rpx;
 }
 
-
+.Content{
+  width: 100%;
+}
 .ContentInput{
   border-left: 1rpx #666666 solid;
   border-right:1rpx #666666 solid;
-  padding: rpx;
-  margin-top: -185rpx;
+  width: auto;
+  margin-top: -75rpx;
+  padding:10rpx; 
   font-size:36rpx;
   font-weight: lighter;
   color:black;
 }
 .ContentPlaceholder{
   font-weight: lighter;
-  margin-left: 10rpx;
   font-size: 32rpx; 
 }
 

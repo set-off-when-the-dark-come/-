@@ -56,15 +56,15 @@
 }
 .seeContainer view
 {
-   position:relative;
+  position:relative;
   left:56rpx;
   top:13rpx;
    border:0rpx;
   border-top: 1px;
-  height:80rpx;
+  height:76rpx;
   border-color: #ada9a9;
   border-style:solid;
-  width:70%;
+  width:80%;
   display: inline-block;
 }
 .iconArrow
