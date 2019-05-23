@@ -4,7 +4,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    ActivityImageSrc:"../../image/smoke.jpg",
+    iconTimeSrc: "../../image/DecorationIcon/date.png",
+    iconLocationSrc: "../../image/DecorationIcon/location.png",
+    iconIntroductionSrc: "../../image/DecorationIcon/title.png",
+    ActivityName:"芙蓉隧道留言精选活动",
+    ActivityTime:"2019-5-23",
+    ActivityLocation:"厦门大学",
+    ActivityIntroduction:"该活动是厦门大学天黑再动手小组举办的一个关于厦大芙蓉隧道涂鸦精选留言的活动，在活动时间内，在芙蓉隧道定位点内发送留言即可参加活动，获得回复最多的留言可以获得刘旭写真一套",
+   
+    commentList: [
+      {
+        img: "/image/smoke.jpg",
+        nickname: "GenShen LI",
+        comment: "I like your words,and I like XiaMen,I like your words,and I like XiaMen",
+        date: "2019.04.17",
+      },
+      {
+        img: "/image/smoke.jpg",
+        nickname: "GenShen LI",
+        comment: "I like your words,and I like XiaMen",
+        date: "2019.04.17",
+      }
+    ],
   },
 
   /**

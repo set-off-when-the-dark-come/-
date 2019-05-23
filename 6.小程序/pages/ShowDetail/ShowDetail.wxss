@@ -88,3 +88,52 @@
   align-self: flex-end;
   font-size: 24rpx;
 }
+
+.inputBox text
+{
+  font-size:32rpx;
+}
+.inputBox view
+{
+  width:84%;
+  height:150rpx;
+  position:relative;
+  left:8%;
+  border:1px;
+  border-style:solid;
+  border-color:#666666;
+  border-radius: 15rpx;
+}
+.placeInput
+{
+  font-size: 30rpx;
+}
+.sendButton
+{
+  font-size: 28rpx;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #05cebd;
+  border-radius: 40rpx;
+  width: 125rpx;
+  height: 50rpx;
+  box-shadow: 10rpx 5rpx 10rpx #9a9ea7;
+  position:relative;
+  left:240rpx;
+  top:10rpx;
+}
+
+.borderView
+{
+  width:36%;
+  position:relative;
+  left:0rpx;
+  border:0rpx;
+  border-top:1rpx;
+  border-style:solid;
+  border-color: #666666;
+  margin-top:50rpx;
+  margin-bottom: 0rpx;
+}

@@ -8,7 +8,7 @@ Page({
   data: {
     address:"芙蓉隧道",
     date:'',
-    cityCount:'7'
+    cityCount:7
   },
   SeePs:function(){
     wx.navigateTo({

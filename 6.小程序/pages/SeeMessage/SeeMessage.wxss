@@ -38,6 +38,7 @@
 }
 .Title{
   margin-left: -390rpx;
+  font-size:30rpx;
 }
 .TitleIcon{
   width: 28rpx;

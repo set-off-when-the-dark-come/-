@@ -1,0 +1,34 @@
+   <view class="ActivityContainer">
+    <view class="ActivityImageContainer">
+      <image class="ActivityImage" src="{{ActivityImageSrc}}" mode="aspectFill"/>
+    </view>
+    <view class="ActivityImformation">
+      <text class="ActivityName">{{ActivityName}}</text>
+      <view class="timeContainer Container">
+        <image class="icon" src="{{iconTimeSrc}}"/>
+        <text class="title">活动时间：</text>
+        <text class="ActivityTime">{{ActivityTime}}</text>
+      </view>
+      <view class="locationContainer Container">
+        <image class="icon" src="{{iconLocationSrc}}"/>
+        <text class="title">活动地点：</text>
+        <text class="ActivityLocation">{{ActivityLocation}}</text>
+      </view>
+       <view class="Container ActivityIntroductionContainer">
+        <image class="icon" src="{{iconIntroductionSrc}}"/>
+        <text class="title">活动简介：</text>
+        <text class="ActivityIntroduction" style="display:block">{{ActivityIntroduction}}</text>
+      </view>
+      
+    </view>
+    <view class="titleContainer">
+      <text class="commentsTitle">精选留言</text>
+    </view>
+   <view wx:key wx:for="{{commentList}}" wx:for-item="item" class="commentContainer">
+      <text class="commentNickname">{{item.nickname}}:</text>
+      <view class='CommentAndDate'>
+         <text class="commentDetail">{{item.comment}}</text>
+         <text class="commentDate">{{item.date}}</text>
+      </view>
+    </view>
+   </view>
