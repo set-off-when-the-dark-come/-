@@ -1,11 +1,11 @@
-<view class='containerPage'>
+<view class='containerPage activityContainer' wx:key wx:for="{{ActivityList}}" wx:for-item="item">
   <navigator url= '/pages/ActivityContent/ActivityContent' open-type='navigate'>
     <view class="activityItem">
-      <image class="activityImage" src='/image/smoke.jpg'></image>
+      <image class="activityImage" src='{{item.activityImageSrc}}'></image>
       <view class="activityBrief">
-        <text class="activityName">芭蕾舞者的浪漫</text>
-        <text class="activityTime">2019.05.04——2019.05.06</text>
-        <text class="activityNum">20000153</text>
+        <text class="activityName">{{item.activityName}}</text>
+        <text class="activityTime">{{item.activityTime}}</text>
+        <text class="activityNum">{{item.activityNum}}</text>
       </view>
     </view>
   </navigator>

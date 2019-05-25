@@ -5,28 +5,29 @@ Page({
    */
   data: {
     address: "芙蓉隧道",
-    MessageList: [
-      {
-        img: "/image/test.jpg",
-        title: "厦门印象",
-        nickname: "唯心主义蠢货",
-        date: "2019.05.17"
-      },
-      {
-        img: "/image/smoke.jpg",
-        title: "厦门印象",
-        nickname: "唯心主义蠢货",
-        date: "2019.05.17"
+    // MessageList: [
+    //   {
+    //     img: "/image/test.jpg",
+    //     title: "厦门印象",
+    //     nickname: "唯心主义蠢货",
+    //     date: "2019.05.17"
+    //   },
+    //   {
+    //     img: "/image/smoke.jpg",
+    //     title: "厦门印象",
+    //     nickname: "唯心主义蠢货",
+    //     date: "2019.05.17"
 
-      },
-      {
-        img: "/image/smoke.jpg",
-        title: "厦门印象",
-        nickname: "唯心主义蠢货",
-        date: "2019.05.17"
+    //   },
+    //   {
+    //     img: "/image/smoke.jpg",
+    //     title: "厦门印象",
+    //     nickname: "唯心主义蠢货",
+    //     date: "2019.05.17"
 
-      }
-    ]
+    //   }
+    // ]
+    MessageList:""
   },
   ShowDetail: function () {
     //const Url = "../ShowDetail/ShowDetail?id = " + object.id;
@@ -39,20 +40,21 @@ Page({
    */
   onLoad: function (options) {
     const _this = this;
-    const Url = "../ShowDetail/ShowDetail" + options.id;
-    // wx.request({
-    //   url: Url,
-    //   data:{},
-    //   header:{
-    //     'content-type': 'json'
-    //   },
-    //   success:function(res){
-    //     _this.setData({
-    //       MessageList:res.data.list,
-
-    //     })
-    //   }
-    // })
+    wx.request({
+      url: "https://whale.ringoer.com/post/getByloc",
+      data:{
+        loca:"曾厝垵"
+      },
+      header:{
+        'content-type': 'application/json'
+      },
+      success:function(res){
+        // _this.setData({
+        //   MessageList:res.data.list,
+        // })’
+        console.log(res.data);
+      }
+    })
     wx.showNavigationBarLoading();
     wx.setNavigationBarTitle({
       title: '留言墙',
