@@ -5,6 +5,7 @@ Page({
    */
   data: {
     address: "芙蓉隧道",
+<<<<<<< HEAD
     // MessageList: [
     //   {
     //     img: "/image/test.jpg",
@@ -17,6 +18,21 @@ Page({
     //     title: "厦门印象",
     //     nickname: "唯心主义蠢货",
     //     date: "2019.05.17"
+=======
+    Messages:[],
+    MessageList: [
+      {
+        img: "/image/test.jpg",
+        title: "厦门印象",
+        nickname: "唯心主义蠢货",
+        date: "2019.05.17"
+      },
+      {
+        img: "/image/smoke.jpg",
+        title: "厦门印象",
+        nickname: "唯心主义蠢货",
+        date: "2019.05.17"
+>>>>>>> 9431a5efe8c18254144e1fce1d9bd190b94e60c0
 
     //   },
     //   {
@@ -39,6 +55,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+<<<<<<< HEAD
     const _this = this;
     wx.request({
       url: "https://whale.ringoer.com/post/getByloc",
@@ -53,6 +70,27 @@ Page({
         //   MessageList:res.data.list,
         // })’
         console.log(res.data);
+=======
+    const  _this = this;
+    wx.request({
+      url: 'https://whale.ringoer.com/post/getbyloc',
+      method:'GET',
+      data:{
+        loc:'厦门',
+      },
+      header:{
+        'content-type': 'json'
+      },
+      success:function(res){
+        console.log(res.data);
+        _this.setData({
+           Messages:res.data,
+        })
+      },
+      fail:function(fail){
+        console.log(fail);
+        console.log('fail');
+>>>>>>> 9431a5efe8c18254144e1fce1d9bd190b94e60c0
       }
     })
     wx.showNavigationBarLoading();
@@ -68,6 +106,7 @@ Page({
    */
   onReady: function () {
     wx.hideNavigationBarLoading();
+    console.log('加载成功!');
   },
 
   /**

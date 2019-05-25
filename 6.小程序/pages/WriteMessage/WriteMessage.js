@@ -9,13 +9,10 @@ Page({
       title: "",
       content: "",
     },
-    date: "",
-    paths: "",
   },
 
   ChooseImage() {
     var _this = this;
-    const Url = '13'//上传接口
 
     wx.chooseImage({//选择文件
       count: 1,
@@ -28,16 +25,48 @@ Page({
     })
   },
   CompleteInput: function () {
-    // wx.request({
-    //   url: '',
-    //   data:{
-
-    //   },
-    //   success:function(res){
-
-    //   },
-
-    // })
+    var _this = this;
+    wx.request({
+      url: 'https://whale.ringoer.com/userloc/add',
+      method:'POST',
+      header:{
+        'content-type':'application/x-www-form-urlencoded;charset=utf-8'
+      },
+      data:{
+        userid:'cw',
+        locationName:'杭州',
+      },
+      success:function(res){
+        console.log(res);
+      },
+      fail:function(){
+        console.log(fail);
+      },
+    })
+    wx.request({
+      url: 'https://whale.ringoer.com/post/new',
+      method:'POST',
+      header:{
+        'Content-Type': 'multipart/form-data'
+      },
+      data:{
+        title: _this.data.Message.title,
+        content: _this.data.Message.content,
+        location:'山东',
+        userId:'cw',
+      },
+      success:function(res){
+        console.log(res.data);
+      },
+      fail:function(fail)
+      {
+        console.log(fail);
+        wx.showModal({
+          title: 'QAQ',
+          content: '服务器开小差了，请重新上传',
+        })
+      }
+    })
     console.log("输入完成!");
   },
   /**
@@ -48,10 +77,6 @@ Page({
     wx.setNavigationBarTitle({
       title: '写留言',
     });
-    var TIME = util.formatDate(new Date());
-    this.setData({
-      date: TIME,
-    })
   },
 
   /**
@@ -105,14 +130,14 @@ Page({
 })
 function upload(page, path) {
   wx.uploadFile({
-    url: 'https://www.mywhale.xyz:80/home/upload',
+    url: 'https://whale.ringoer.com/post/upload',
     filePath: path[0],
     name: 'file',
     header: {
       "Content-Type": "multipart/form-data"
     },
-    success() {
-
+    success(res) {
+      console.log(res.data);
     },
     fail() {
 
