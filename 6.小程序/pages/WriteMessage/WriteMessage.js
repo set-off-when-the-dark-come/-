@@ -27,13 +27,33 @@ Page({
   CompleteInput: function () {
     var _this = this;
     wx.request({
-      url: 'https://whale.ringoer.com/post/newparam',
+      url: 'https://whale.ringoer.com/userloc/add',
       method:'POST',
+      header:{
+        'content-type':'application/x-www-form-urlencoded;charset=utf-8'
+      },
+      data:{
+        userid:'cw',
+        locationName:'杭州',
+      },
+      success:function(res){
+        console.log(res);
+      },
+      fail:function(){
+        console.log(fail);
+      },
+    })
+    wx.request({
+      url: 'https://whale.ringoer.com/post/new',
+      method:'POST',
+      header:{
+        'Content-Type': 'multipart/form-data'
+      },
       data:{
         title: _this.data.Message.title,
         content: _this.data.Message.content,
         location:'山东',
-        userId:'123',
+        userId:'cw',
       },
       success:function(res){
         console.log(res.data);
@@ -110,7 +130,7 @@ Page({
 })
 function upload(page, path) {
   wx.uploadFile({
-    url: 'https://whale.ringoer.com/post/uploadparam',
+    url: 'https://whale.ringoer.com/post/upload',
     filePath: path[0],
     name: 'file',
     header: {

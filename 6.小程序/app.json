@@ -1,6 +1,5 @@
 {
   "pages": [
-   
     "pages/Main/Main",
     "pages/Activity/Activity",
     "pages/Manage/Manage",
@@ -15,7 +14,7 @@
     "pages/ShowDetail/ShowDetail",
     "pages/Manage/History/History",
     "pages/Manage/Setting/Setting",
-    "pages/Maps/Maps"
+     "pages/Maps/Maps"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -7,10 +7,10 @@
   <view class='TitleAndContent' >
     <view class='Title'>
       <image class='Icon' src='/image/DecorationIcon/title.png'></image>
-      <input type="text" class='TitleInput'  placeholder='标题'>{{Message.title}}</input>
+      <input class='titleInput' focus='true' adjust-position='true' placeholder='标题' >{{Message.title}}</input>
     </view>
     <view class='Content'>
-      <textarea type='text' class='ContentInput' placeholder-class='ContentPlaceholder' placeholder='想说的话'>{{Message.content}}</textarea>
+      <textarea class='ContentInput'  placeholder='想说的话'>{{Message.content}}</textarea>
     </view>
     <button class='CompleteButton' bindtap='CompleteInput'>
       <image src='/image/DecorationIcon/writeMessage.png'></image>

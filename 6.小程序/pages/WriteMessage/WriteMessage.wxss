@@ -12,7 +12,7 @@
   margin: auto;
 }
 .TitleAndContent{
-  height: 45vh;
+  height: 43vh;
   margin: auto;
   width: 95%;
   display: flex;
@@ -22,8 +22,11 @@
 .Title{
   display: flex;
   align-items: center;
-  height: 36rpx;
+  height: 40rpx;
   font-size: 36rpx;
+}
+.titleInput{
+  margin-left: 5rpx;
 }
 .Icon{
   width: 36rpx;
@@ -35,12 +38,18 @@ text{
 
 .Content{
   width: 100%;
+  }
+.ContentInput{
+    border-left: 1rpx #666666 solid;
+}    
+.Content{
+  width: 100%;
 }
 .ContentInput{
   border-left: 1rpx #666666 solid;
   border-right:1rpx #666666 solid;
   width: auto;
-  margin-top: -75rpx;
+  margin-top: 0rpx;
   padding:10rpx; 
   font-size:36rpx;
   font-weight: lighter;
