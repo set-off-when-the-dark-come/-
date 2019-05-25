@@ -5,6 +5,7 @@ Page({
    */
   data: {
     address: "芙蓉隧道",
+    Messages:[],
     MessageList: [
       {
         img: "/image/test.jpg",
@@ -38,21 +39,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const _this = this;
-    const Url = "../ShowDetail/ShowDetail" + options.id;
-    // wx.request({
-    //   url: Url,
-    //   data:{},
-    //   header:{
-    //     'content-type': 'json'
-    //   },
-    //   success:function(res){
-    //     _this.setData({
-    //       MessageList:res.data.list,
-
-    //     })
-    //   }
-    // })
+    const  _this = this;
+    wx.request({
+      url: 'https://whale.ringoer.com/post/getbyloc',
+      method:'GET',
+      data:{
+        loc:'厦门',
+      },
+      header:{
+        'content-type': 'json'
+      },
+      success:function(res){
+        console.log(res.data);
+        _this.setData({
+           Messages:res.data,
+        })
+      },
+      fail:function(fail){
+        console.log(fail);
+        console.log('fail');
+      }
+    })
     wx.showNavigationBarLoading();
     wx.setNavigationBarTitle({
       title: '留言墙',
@@ -66,6 +73,7 @@ Page({
    */
   onReady: function () {
     wx.hideNavigationBarLoading();
+    console.log('加载成功!');
   },
 
   /**
