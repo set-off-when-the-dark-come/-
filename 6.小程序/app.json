@@ -1,5 +1,9 @@
 {
   "pages": [
+<<<<<<< HEAD
+  
+=======
+>>>>>>> 9431a5efe8c18254144e1fce1d9bd190b94e60c0
     "pages/Main/Main",
     "pages/Activity/Activity",
     "pages/Manage/Manage",
@@ -13,7 +17,12 @@
     "pages/SeeMessage/SeeMessage",
     "pages/ShowDetail/ShowDetail",
     "pages/Manage/History/History",
+<<<<<<< HEAD
     "pages/Manage/Setting/Setting"
+=======
+    "pages/Manage/Setting/Setting",
+    "pages/Maps/Maps"
+>>>>>>> bf4007f14ff9e2ce66c8d3e04e83e799fb8a641b
   ],
   "window": {
     "backgroundTextStyle": "light",

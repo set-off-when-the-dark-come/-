@@ -23,6 +23,27 @@ App({
     // 登录
     wx.login({
       success: res => {
+
+        console.log(res.code);
+        wx.request({
+          url:'https://whale.ringoer.com:443/user/register',
+          data:{
+          userId: "tesid",
+           nickname:"testnickName",
+            
+          },
+          method:"POST",
+          header: {
+            'Content-Type': 'multipart/form-data' // 默认值
+          },
+          success:res=>{
+            console.log(res);
+            console.log("success!");
+          },
+          fail:res=>{
+            console.log("fail！");
+          }
+        })
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })

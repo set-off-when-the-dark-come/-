@@ -9,11 +9,6 @@
         <text class="title">活动时间：</text>
         <text class="ActivityTime">{{ActivityTime}}</text>
       </view>
-      <view class="locationContainer Container">
-        <image class="icon" src="{{iconLocationSrc}}"/>
-        <text class="title">活动地点：</text>
-        <text class="ActivityLocation">{{ActivityLocation}}</text>
-      </view>
        <view class="Container ActivityIntroductionContainer">
         <image class="icon" src="{{iconIntroductionSrc}}"/>
         <text class="title">活动简介：</text>
@@ -21,9 +16,21 @@
       </view>
       
     </view>
+     <view class="Container ActivityIntroductionContainer">
+        <image class="icon2" src="{{iconLocationSrc}}"/>
+        <text class="title">活动地点：</text>
+      </view>
+     <view wx:key wx:for="{{locationList}}" wx:for-item="item" class="locationContainer">
+      <image class="iconLocation icon" src="../../image/DecorationIcon/location.png"/>
+      <text class="location">{{item.location}}</text>
+      <checkbox disabled='false' checked='{{item.isChecked}}' class="checkboxClass"></checkbox>
+    </view>
+
     <view class="titleContainer">
       <text class="commentsTitle">精选留言</text>
     </view>
+
+   
    <view wx:key wx:for="{{commentList}}" wx:for-item="item" class="commentContainer">
       <text class="commentNickname">{{item.nickname}}:</text>
       <view class='CommentAndDate'>

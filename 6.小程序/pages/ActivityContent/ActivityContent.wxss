@@ -60,6 +60,15 @@
   left:5rpx;
   margin-right: 20rpx;
 }
+.icon2
+{
+   width:50rpx;
+  height:50rpx;
+  position:relative;
+  top:15rpx;
+  left:5rpx;
+  margin-right: 20rpx;
+}
 .Container
 {
   width:86%;
@@ -89,7 +98,6 @@
 .ActivityIntroductionContainer
 {
   border:0px;
-  margin-bottom: 80rpx;
   margin-top:20rpx;
 }
 
@@ -107,4 +115,58 @@
 }
 .ActivityLocation,.ActivityTime,.ActivityIntroductionContainer{
   font-size:24rpx;
+}
+
+/*选项框*/
+checkbox
+{
+  width:50rpx;
+  height:50rpx;
+}
+/*checkbox 选项框大小  */
+checkbox .wx-checkbox-input {
+  border-radius: 50%;
+  width: 40rpx;
+  height: 40rpx;
+ background: #eeeeee;
+}
+/*checkbox选中后样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #eeeeee;
+}
+/*checkbox选中后图标样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 28rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: rgb(104, 104, 104);
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+.locationContainer
+{
+  width:80%;
+  position:relative;
+  left:10%;
+}
+.iconLocation
+{
+  width:35rpx;
+  height:35rpx;
+  position: relative;
+  top:2rpx;
+
+}
+
+.checkboxClass
+{
+  position:absolute;
+  right:0;
+}
+.location
+{
+  font-size:26rpx;
 }

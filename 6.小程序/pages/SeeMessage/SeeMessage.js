@@ -8,7 +8,24 @@ Page({
    */
   data: {
     address: "芙蓉隧道",
+<<<<<<< HEAD
     location:'南京',
+=======
+<<<<<<< HEAD
+    // MessageList: [
+    //   {
+    //     img: "/image/test.jpg",
+    //     title: "厦门印象",
+    //     nickname: "唯心主义蠢货",
+    //     date: "2019.05.17"
+    //   },
+    //   {
+    //     img: "/image/smoke.jpg",
+    //     title: "厦门印象",
+    //     nickname: "唯心主义蠢货",
+    //     date: "2019.05.17"
+=======
+>>>>>>> bf4007f14ff9e2ce66c8d3e04e83e799fb8a641b
     Messages:[],
     MessageList: [
       {
@@ -22,6 +39,7 @@ Page({
         title: "厦门印象",
         nickname: "唯心主义蠢货",
         date: "2019.05.17"
+<<<<<<< HEAD
 
       },
       {
@@ -31,6 +49,20 @@ Page({
         date: "2019.05.17"
       }
     ]
+=======
+>>>>>>> 9431a5efe8c18254144e1fce1d9bd190b94e60c0
+
+    //   },
+    //   {
+    //     img: "/image/smoke.jpg",
+    //     title: "厦门印象",
+    //     nickname: "唯心主义蠢货",
+    //     date: "2019.05.17"
+
+    //   }
+    // ]
+    MessageList:""
+>>>>>>> bf4007f14ff9e2ce66c8d3e04e83e799fb8a641b
   },
   ShowDetail: function () {
     //const Url = "../ShowDetail/ShowDetail?id = " + object.id;
@@ -42,6 +74,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+<<<<<<< HEAD
+    const _this = this;
+    wx.request({
+      url: "https://whale.ringoer.com/post/getByloc",
+      data:{
+        loca:"曾厝垵"
+      },
+      header:{
+        'content-type': 'application/json'
+      },
+      success:function(res){
+        // _this.setData({
+        //   MessageList:res.data.list,
+        // })’
+        console.log(res.data);
+=======
     const  _this = this;
 
     /* 判断我是否留言 */
@@ -110,9 +158,13 @@ Page({
       fail:function(fail){
         console.log(fail);
         console.log('fail');
+<<<<<<< HEAD
       },
       complete:function(){
         
+=======
+>>>>>>> 9431a5efe8c18254144e1fce1d9bd190b94e60c0
+>>>>>>> bf4007f14ff9e2ce66c8d3e04e83e799fb8a641b
       }
     })
     wx.showNavigationBarLoading();

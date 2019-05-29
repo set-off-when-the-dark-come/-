@@ -11,6 +11,7 @@ Page({
   },
   //事件处理函数
   bindViewTap: function() {
+    console.log(userInfo.avatarUrl),
     wx.navigateTo({
       url: '../logs/logs'
     })
@@ -34,6 +35,7 @@ Page({
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
         success: res => {
+          console.log(res.code),
           app.globalData.userInfo = res.userInfo
           this.setData({
             userInfo: res.userInfo,

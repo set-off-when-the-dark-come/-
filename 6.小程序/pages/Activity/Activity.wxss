@@ -4,7 +4,7 @@
   height: 180rpx;
   flex-direction: row;
   align-items: center;
-  background: #d8d7d7;
+  background: #eeeeee;
 }
 .activityImage
 {
@@ -35,4 +35,8 @@
 .activityNum
 {
   font-size: 18rpx;
+}
+.activityContainer
+{
+  margin-bottom:10rpx;
 }

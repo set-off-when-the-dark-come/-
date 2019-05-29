@@ -4,12 +4,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    activityItem:{}
+    activityItem:{},
+    ActivityList:[
+      {
+        activityImageSrc: "../../image/smoke.jpg",
+        activityName: "芭蕾舞者的浪漫",
+        activityTime:"2019.05.04——2019.05.06",
+        activityNum:"20000153",
+      },
+      {
+        activityImageSrc: "../../image/smoke.jpg",
+        activityName: "芭蕾舞者的浪漫",
+        activityTime: "2019.05.04——2019.05.06",
+        activityNum: "20000153",
+      },
+    ]
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+<<<<<<< HEAD
     wx.request({
       url: 'https://whale.ringoer.com/act/getact',
       method:"GET",
@@ -26,13 +41,19 @@ Page({
 
       }
     })
+=======
+    wx.showNavigationBarLoading();
+    wx.setNavigationBarTitle({
+      title: '活动',
+    });
+>>>>>>> bf4007f14ff9e2ce66c8d3e04e83e799fb8a641b
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+    wx.hideNavigationBarLoading();
   },
 
   /**
