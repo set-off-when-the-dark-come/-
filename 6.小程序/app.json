@@ -13,8 +13,7 @@
     "pages/SeeMessage/SeeMessage",
     "pages/ShowDetail/ShowDetail",
     "pages/Manage/History/History",
-    "pages/Manage/Setting/Setting",
-     "pages/Maps/Maps"
+    "pages/Manage/Setting/Setting"
   ],
   "window": {
     "backgroundTextStyle": "light",

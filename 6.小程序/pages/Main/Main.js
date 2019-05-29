@@ -8,7 +8,14 @@ Page({
   data: {
     address:"芙蓉隧道",
     date:'',
-    cityCount:7
+    cityCount:7,
+    MainAnimationL:{},
+  },
+  jumpToMap:function(){
+    wx.navigateTo({
+      url: '../Maps/Maps',
+
+    })
   },
   SeePs:function(){
     wx.navigateTo({
@@ -30,6 +37,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.app = getApp();
+
     wx.showNavigationBarLoading();
     wx.setNavigationBarTitle({
       title: '主页',
@@ -52,7 +61,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    this.app.slideUpShow(this, "slide1", 600, -60, 1);
+    this.app.slideUpShow(this, "slide2", 600, 60, 1);
+    this.app.slideUpShow(this, "slide3", 800, 0, 1);
   },
 
   /**

@@ -1,16 +1,15 @@
 <view class='containerPage'>
-  <view class='ChooseImage' bindtap='ChooseImage'>
-      <image class='centerCameraIcon' mode="widthFix" src='/image/DecorationIcon/camera.png'></image>
-  </view>
+
+  <image class='ChooseImage' bindtap='ChooseImage' mode="widthFix" src='{{path}}'></image>
 
 
   <view class='TitleAndContent' >
     <view class='Title'>
       <image class='Icon' src='/image/DecorationIcon/title.png'></image>
-      <input class='titleInput' focus='true' adjust-position='true' placeholder='标题' >{{Message.title}}</input>
+      <input class='titleInput' focus='{{focus1}}' bindtap='changeFocus1' adjust-position='true' placeholder='标题' bindinput='getTitle' >{{title}}</input>
     </view>
     <view class='Content'>
-      <textarea class='ContentInput'  placeholder='想说的话'>{{Message.content}}</textarea>
+      <textarea class='ContentInput' bindtap='changeFocus2' bindinput='getContent' placeholder='想说的话'>{{content}}</textarea>
     </view>
     <button class='CompleteButton' bindtap='CompleteInput'>
       <image src='/image/DecorationIcon/writeMessage.png'></image>

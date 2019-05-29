@@ -4,20 +4,23 @@
   <text>{{address}}</text>
 </view>
 <scroll-view scroll-y="true" style='height:1140rpx'>
-<view wx:for="{{MessageList}}" wx:key="{{item.img}}" class='AMessage' bindtap='ShowDetail' >
+<view wx:for="{{Messages}}" wx:key="{{item.img}}" class='AMessage' bindtap='ShowDetail' >
     
-    <image class='MainImage' mode='widthFix' src='{{item.img}}'></image>
+    <text>{{item.nickname}}:</text>
+
+    
+    <image wx:if="{{item.img}}"class='MainImage' mode='widthFix' src='{{item.img}}'></image>
     
 
-    <view class='TitleAndName'>
-      <image class='TitleIcon' src='/image/DecorationIcon/title.png'></image>
-      <text class='Title'>{{item.title}}</text>
-      <text>{{item.nickname}}</text>
-    </view>
-
-    <view class='Date'>
-      <image class='TitleIcon' src='/image/DecorationIcon/Date.png'></image>
-      <text>{{item.date}}</text>
+    <view class='TitleAndDate'>
+      <view class='Title'>
+        <image class='TitleIcon' src='/image/DecorationIcon/title.png'></image>
+        <text>{{item.title}}</text>
+      </view>
+      <view class='Date'>
+        <image class='TitleIcon' src='/image/DecorationIcon/Date.png'></image>
+        <text>{{item.date}}</text>
+      </view>
     </view>
 
 </view>

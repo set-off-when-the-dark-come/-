@@ -1,5 +1,19 @@
 //app.js
 App({
+  slideUpShow:function(that,params,durationTime,px,opacity){
+    var rpx = px/2;
+    var animation = wx.createAnimation({
+      duration:durationTime,
+      timingFunction: 'ease-in-out'
+    });
+    animation.translateY(rpx).opacity(opacity).step();
+    var json = '{"' + params + '":""}';
+    json = JSON.parse(json);
+    json[params] = animation.export();
+    that.setData(json);
+  },
+
+
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []

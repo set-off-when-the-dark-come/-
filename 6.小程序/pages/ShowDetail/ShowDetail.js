@@ -29,11 +29,48 @@ Page({
     ],
 
   },
-
+  reply:function(e){
+    console.log('reply');
+      wx.request({
+        url: 'https://whale.ringoer.com/reply/new',
+        method:'POST',
+        header:{
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        data:{
+          src:'cw',
+          dest:'test',
+          content:'老子刘仁帅',
+          postId:'68',
+        },
+        success:function(res){
+          console.log(res);
+        },
+        fail:function(fail){
+          console.log(fail);
+        }
+      })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.request({
+      url: 'https://whale.ringoer.com/reply/getbypost',
+      method:"POST",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      data:{
+        postId:'68' 
+      },
+      success:function(res){
+        console.log(res);
+      },
+      fail:function(fail){
+        console.log(fail);
+      }
+    })
     wx.showNavigationBarLoading();
     wx.setNavigationBarTitle({
       title: '留言',

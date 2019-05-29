@@ -30,13 +30,13 @@
     </view>
     <view class="borderView">
     </view>
-    <view class="inputBox">
+    <view class="inputBox" bindtap='reply'>
       <text>说点什么</text>
       <view>
        <textarea placeholder='说说你关于这个留言的看法' class="input" placeholder-class='placeInput'></textarea>
       </view>
     </view>
 
-    <button class="sendButton">发送</button>
+    <button class="sendButton" >发送</button>
   </view>
 </view>
