@@ -1,15 +1,22 @@
 <view class='containerPage'>
+  <view class='DateAndLocationAndImage'>
+    <view class='DateAndLoaction'>
+      <image class='Icon' src='/image/DecorationIcon/location.png'></image>
+          <text>{{date}}-{{location}}</text>
+    </view>
+    <image class='ChooseImage' bindtap='ChooseImage' mode="widthFix" src='{{imagePath}}'></image>
+  </view>
 
-  <image class='ChooseImage' bindtap='ChooseImage' mode="widthFix" src='{{path}}'></image>
 
 
   <view class='TitleAndContent' >
     <view class='Title'>
       <image class='Icon' src='/image/DecorationIcon/title.png'></image>
-      <input class='titleInput' focus='{{focus1}}' bindtap='changeFocus1' adjust-position='true' placeholder='标题' bindinput='getTitle' >{{title}}</input>
+      <input class='titleInput' focus='{{focus1}}' bindtap='changeFocus1' adjust-position='true' placeholder='请输入标题' bindinput='getTitle' >{{title}}</input>
     </view>
     <view class='Content'>
-      <textarea class='ContentInput' bindtap='changeFocus2' bindinput='getContent' placeholder='想说的话'>{{content}}</textarea>
+      <textarea class='ContentInput' bindtap='changeFocus2' bindinput='getContent' 
+      placeholder='想说的话'></textarea>
     </view>
     <button class='CompleteButton' bindtap='CompleteInput'>
       <image src='/image/DecorationIcon/writeMessage.png'></image>

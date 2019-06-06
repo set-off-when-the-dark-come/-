@@ -1,37 +1,23 @@
+var siteUrl = "http://whale.ringoer.com/";
+const app = getApp();
+
 Page({
 
   /**
   * 页面的初始数据
   */
   data: {
+    userInfo: null,
+    openId: null,
     // ActivityImageSrc:"../../image/smoke.jpg",
     ActivityImageSrc: "http://whale.ringoer.com/upload/act/dance.jpg",
     iconTimeSrc: "../../image/DecorationIcon/date.png",
     iconLocationSrc: "../../image/DecorationIcon/location.png",
     iconIntroductionSrc: "../../image/DecorationIcon/title.png",
-<<<<<<< HEAD
-    ActivityName: "芙蓉隧道留言精选活动",
+    ActivityName: "活动",
     ActivityTime: "2019-5-23",
-    ActivityLocation: "厦门大学",
-    ActivityIntroduction: "该活动是厦门大学天黑再动手小组举办的一个关于厦大芙蓉隧道涂鸦精选留言的活动，在活动时间内，在芙蓉隧道定位点内发送留言即可参加活动，获得回复最多的留言可以获得刘旭写真一套",
+    ActivityIntroduction: "该活动是厦门大学天黑再动手小组",
     locationList: [
-=======
-    ActivityName:"芙蓉隧道留言精选活动",
-    ActivityTime:"2019-5-23",
-    ActivityLocation:"厦门大学",
-    ActivityIntroduction:"该活动是厦门大学天黑再动手小组举办的一个关于厦大芙蓉隧道涂鸦精选留言的活动，在活动时间内，在芙蓉隧道定位点内发送留言即可参加活动，获得回复最多的留言可以获得刘旭写真一套",
-   locationList:[
-     {
-       location:"芙蓉隧道",
-       isChecked:true,
-     },
-      {
-        location: "芙蓉湖",
-        isChecked: false,
-      }
-   ],
-    commentList: [
->>>>>>> bf4007f14ff9e2ce66c8d3e04e83e799fb8a641b
       {
         location: "芙蓉隧道",
         isChecked: true,
@@ -42,21 +28,37 @@ Page({
       }
     ],
   },
-
+  CompleteInput:function(){
+    console.log('完成打卡');
+    // wx.request({
+    //   url: '',
+    // })
+  },
   /**
   * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
-<<<<<<< HEAD
-    var activityName = options.activityName;
-=======
->>>>>>> bf4007f14ff9e2ce66c8d3e04e83e799fb8a641b
+    var that = this;
+    var MyactivityName = options.activityName;
+    if (app.globalData.userInfo) {
+      _this.setData({
+        userInfo: app.globalData.userInfo,
+        openId: app.globalData.openId,
+      })
+    }
+    else {
+      wx.showModal({
+        title: '提示',
+        content: '还没有登录哦！',
+      })
+    }
+    
+    
+    console.log(MyactivityName);
     wx.showNavigationBarLoading();
     wx.setNavigationBarTitle({
       title: '活动详情',
     });
-<<<<<<< HEAD
-    const _this = this;
     /* 获取活动信息*/
     wx.request({
       url: "https://whale.ringoer.com/act/getactinfo",
@@ -67,38 +69,40 @@ Page({
       },
       data:
       {
-        activityName: '跳舞',
+        activityName: MyactivityName,
       },
       success: function (res) {
         console.log("success in activityContent 内容");
         console.log(res.data);
-        // _this.setDada({
-        // ActivityName:res.actName,
-        // ActivityTime:res.actTime,
-        // ActivityIntroduction:res.actIntro,
-        // });
+        that.setData({
+          ActivityName: res.data.activityName,
+          ActivityTime: res.data.activityTime,
+          ActivityIntroduction: res.data.content,
+          ActivityImageSrc: siteUrl + res.data.poster
+        });
       }
     });
-    /**获取活动图片 */
+
+    /**获取活动地点 */
     wx.request({
-      url: 'https://whale.ringoer.com/act/getposter',
+      url: 'https://whale.ringoer.com/actloc/getallloc',
       method: "POST",
       header: {
         'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
       data: {
-        activityName: activityName,
+        activityName: MyactivityName,
       },
       success: function (res) {
-        console.log("success in activityContent 照片");
         console.log(res.data);
-        // that.setDada({
-        // ActivityImageSrc:res.data,
-        // });
+        for (var i = 0; i < res.data.length; i++) {
+          var activityLocation = "locationList[" + i + "].location";
+          that.setData({
+            [activityLocation]: res.data[i],
+          });
+        }
       }
     })
-=======
->>>>>>> bf4007f14ff9e2ce66c8d3e04e83e799fb8a641b
   },
 
   /**
@@ -137,10 +141,4 @@ Page({
   */
   onReachBottom: function () {
   },
-
-  /**
-  * 用户点击右上角分享
-  */
-  onShareAppMessage: function () {
-  }
 })

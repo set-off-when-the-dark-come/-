@@ -1,10 +1,10 @@
 .Page{
-  background-color: #abaaaa;
+  background-color: #fff;
 }
 .Address{
   display: flex;
   align-items: center;
-  height: 50rpx;
+  height: 4vh;
   padding-left: 30rpx;
   padding-top: 15rpx;
   padding-bottom: 18rpx;
@@ -29,6 +29,7 @@
   padding-right: 4%;
   padding-top: 20rpx;
   padding-bottom: 20rpx;
+  border-bottom: 4rpx solid #e2e2e2;
 }
 
 .MainImage{
@@ -42,8 +43,8 @@
   align-items: center;
 }
 .TitleIcon{
-  width: 30rpx;
-  height: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
 }
 text{
   letter-spacing: 2rpx;
@@ -60,4 +61,15 @@ text{
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+.noMessage
+{
+  height: 100vh;
+  background-color: #fff;
+}
+.noMessage text{
+  margin-left: 3vh;
+  font-size: 28rpx;
+  color: #666666;
+  letter-spacing: 1rpx;
 }

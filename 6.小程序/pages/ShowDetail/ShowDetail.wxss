@@ -91,14 +91,14 @@
 
 .inputBox text
 {
-  font-size:32rpx;
+  font-size:28rpx;
 }
 .inputBox view
 {
-  width:84%;
-  height:150rpx;
+  margin: auto;
+  width:95%;
+  height:160rpx;
   position:relative;
-  left:8%;
   border:1px;
   border-style:solid;
   border-color:#666666;
@@ -108,21 +108,22 @@
 {
   font-size: 30rpx;
 }
-.sendButton
-{
-  font-size: 28rpx;
-  color: white;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.sendButton{
+  margin-top: 2vh;
+  margin-right: 0rpx;
+  display: block;
   background-color: #05cebd;
   border-radius: 40rpx;
-  width: 125rpx;
-  height: 50rpx;
-  box-shadow: 10rpx 5rpx 10rpx #9a9ea7;
-  position:relative;
-  left:240rpx;
-  top:10rpx;
+  color: #fff;
+  font-size: 30rpx;
+  width: 165rpx;
+  height: 70rpx;
+  box-shadow: 10rpx 5rpx 10rpx #666666
+}
+.input{
+  width:90vh;
+  font-size: 28rpx;
+  padding: 10rpx;
 }
 
 .borderView

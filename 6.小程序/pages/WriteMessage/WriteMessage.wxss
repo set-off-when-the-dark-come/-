@@ -1,8 +1,22 @@
-.ChooseImage{
+.DateAndLocationAndImage{
   margin-left: 2%;
   width: 96%;
-  margin-top: 15rpx;
-  margin-bottom: 30rpx;
+  margin-top: 10rpx;
+  margin-bottom: 25rpx;
+}
+.ChooseImage{
+  margin-top: 20rpx;
+  width: 100%;
+}
+.DateAndLoaction{
+  display: flex;
+  align-items: center;
+  color: #666666;
+}
+.DateAndLoaction text{
+  font-size: 34rpx;
+  letter-spacing: 1rpx;
+  font-weight: lighter;
 }
 .TitleAndContent{
   height: 43vh;
@@ -14,19 +28,22 @@
   justify-content: space-between;
 }
 .Title{
+  background-color: #fff;
   display: flex;
   align-items: center;
-  height: 40rpx;
-  font-size: 36rpx;
+  height: 60rpx;
+  font-size: 34rpx;
+  font-weight: lighter;
 }
 .titleInput{
   margin-left: 5rpx;
 }
 .Icon{
-  width: 36rpx;
-  height: 36rpx;
+  width: 40rpx;
+  height: 40rpx;
 }
 text{
+  margin-left: 10rpx;
   letter-spacing: 10rpx;
 }
 
@@ -44,14 +61,11 @@ text{
   border-right:1rpx #666666 solid;
   width: auto;
   margin-top: 0rpx;
-  padding:10rpx; 
-  font-size:36rpx;
+  padding-left:10rpx;
+  padding-right: 10rpx; 
+  font-size:30rpx;
   font-weight: lighter;
   color:black;
-}
-.ContentPlaceholder{
-  font-weight: lighter;
-  font-size: 32rpx; 
 }
 
 .CompleteButton{
@@ -63,7 +77,7 @@ text{
   border-radius: 40rpx;
   width: 185rpx;
   height: 80rpx;
-  box-shadow: 10rpx 5rpx 10rpx #9a9ea7
+  box-shadow: 10rpx 5rpx 10rpx #666666;
 }
 .CompleteButton image{
   width: 35rpx;

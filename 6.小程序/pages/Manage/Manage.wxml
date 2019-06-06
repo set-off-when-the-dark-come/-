@@ -1,20 +1,30 @@
 <view class='containerPage'>
-  <view class="userInformationContainer">
+  <view wx:if='{{userInfo}}' class="userInformationContainer">
+    <view class="userHead">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class='userName'>
+      <open-data type="userNickName"></open-data>
+    </view>
+    <view class='userDetail'>
+      <text>我的资料</text>
+    </view>
+  </view>
+    <view wx:else bindtap='login' class="userInformationContainer">
     <image class="userHead" src="{{userHeadSrc}}"/>
-    <text class="userName">{{userName}}</text>
-    <text class="userDetail">{{userDetail}}</text>
+    <button class='clickButton' open-type='getUserInfo' bindgetuserinfo='getUserInfo' >点击登录</button>
   </view>
   <view class="seeContainer">
     <image class="icon" src="{{iconSeeSrc}}"></image>
     <view bindtap="jumpToSee">
-      <text>看过</text>
+      <text>回复的谁</text>
     </view>
     <image class="iconArrow" src="{{iconArrowSrc}}"/>
   </view>
    <view class="seeContainer">
     <image class="icon" src="{{iconSaySrc}}"></image>
     <view bindtap="jumpToSay">
-      <text>说过</text>
+      <text>写过的话</text>
     </view>
     <image class="iconArrow" src="{{iconArrowSrc}}"/>
   </view>

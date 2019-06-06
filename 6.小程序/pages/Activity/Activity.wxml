@@ -1,12 +1,21 @@
-<view class='containerPage activityContainer' wx:key wx:for="{{ActivityList}}" wx:for-item="item">
-  <navigator url= '/pages/ActivityContent/ActivityContent' open-type='navigate'>
-    <view class="activityItem">
-      <image class="activityImage" src='{{item.activityImageSrc}}'></image>
-      <view class="activityBrief">
-        <text class="activityName">{{item.activityName}}</text>
-        <text class="activityTime">{{item.activityTime}}</text>
-        <text class="activityNum">{{item.activityNum}}</text>
+<view>
+<block wx:if="{{noActivity}}">
+  <view class='noActivity'>
+      <text >当前城市还没有开启活动哦</text>
+  </view>
+</block>
+<block wx:else>
+    <view class='containerPage activityContainer' wx:key wx:for="{{ActivityList}}" wx:for-item="item">
+    <navigator  url= '/pages/ActivityContent/ActivityContent?activityName={{item.activityName}}' open-type='navigate'>
+      <view  class="activityItem">
+        <image class="activityImage" src='{{item.activityImageSrc}}'></image>
+        <view class="activityBrief">
+          <text class="activityName">{{item.activityName}}</text>
+          <text class="activityTime">{{item.activityTime}}</text>
+          <text class="activityNum">已经打卡{{item.activityNum}}个据地喽</text>
+        </view>
       </view>
-    </view>
-  </navigator>
+    </navigator>
+  </view>
+</block>
 </view>

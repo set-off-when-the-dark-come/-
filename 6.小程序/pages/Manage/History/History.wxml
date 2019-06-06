@@ -1,14 +1,23 @@
-<view class="listenListContainer">
-  <scroll-view scroll-y scroll-into-view='{{toView}}' style='height: {{scrollHeight}};'>
-    <block wx:key wx:for='{{msgList}}' wx:for-index="index">
-      <view class="listenMessageContainer"  bindtap='jumpToDetail'>
-        <view class="UserInformationContainer">
-          <image class="userHead" src="{{item.userHeadSrc}}"/>
-          <text class="userName">{{item.userName}}</text>
-          <image class="iconLocation" src="{{iconLocation}}"/>
-          <text class="location">{{item.dateLocation}}></text>
+<view>
+  <block wx:if="{{isHave==false}}">
+    <view class='noMessage'>
+      <text>快去写一段话吧</text>
+    </view>
+  </block>
+  <block wx:else>
+  <view class="listenListContainer">
+      <scroll-view scroll-y scroll-into-view='{{toView}}'>
+        <view wx:for="{{postList}}" data-id='{{item.postId}}' class="listenMessageContainer" bindtap='jumpToDetail'>
+          <view class="UserInformationContainer">
+            <image class="postImg" mode='scaleToFill' src="{{item.picture}}"/>
+            <text class="mainText">{{item.title}}</text>
+            <view class='locationAndDate'>
+                <image class="iconLocation" src="{{iconLocation}}"/>
+                <text class="location">{{item.date}}-{{item.dateLocation}}</text>
+            </view>
+          </view>
         </view>
-      </view>
-    </block>
-  </scroll-view>
+    </scroll-view>
+  </view>
+</block>
 </view>

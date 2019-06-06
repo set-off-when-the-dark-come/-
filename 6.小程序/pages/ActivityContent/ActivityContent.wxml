@@ -1,6 +1,6 @@
    <view class="ActivityContainer">
     <view class="ActivityImageContainer">
-      <image class="ActivityImage" src="{{ActivityImageSrc}}" mode="aspectFill"/>
+      <image class="ActivityImage" src="{{ActivityImageSrc}}" mode="widthFix"/>
     </view>
     <view class="ActivityImformation">
       <text class="ActivityName">{{ActivityName}}</text>
@@ -26,11 +26,10 @@
       <checkbox disabled='false' checked='{{item.isChecked}}' class="checkboxClass"></checkbox>
     </view>
 
-    <view class="titleContainer">
-      <text class="commentsTitle">精选留言</text>
-    </view>
+    <button class='CompleteButton' bindtap='CompleteInput'>
+      <text>完成喽</text>
+    </button>
 
-   
    <view wx:key wx:for="{{commentList}}" wx:for-item="item" class="commentContainer">
       <text class="commentNickname">{{item.nickname}}:</text>
       <view class='CommentAndDate'>

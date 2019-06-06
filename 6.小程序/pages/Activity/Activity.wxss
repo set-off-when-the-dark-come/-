@@ -22,21 +22,30 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: #333333;
+    letter-spacing: 2rpx;
 }
 .activityName
 {
+  color: black;
   font-size: 30rpx;
 }
 .activityTime
 {
-  font-size: 18rpx;
+  color: #666666;
+  font-size: 22rpx;
 }
 .activityNum
 {
-  font-size: 18rpx;
+  color: #666666;
+  font-size: 22rpx;
 }
 .activityContainer
 {
   margin-bottom:10rpx;
+}
+.noActivity{
+  margin-left: 3vh;
+  font-size: 30rpx;
+  color: #666666;
+  letter-spacing: 1rpx;
 }

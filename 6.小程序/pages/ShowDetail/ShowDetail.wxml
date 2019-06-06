@@ -12,7 +12,7 @@
     
     <view class="messageContainer">
       <text class="message">{{Message.content}}</text>
-      <text class="username">唯心主义蠢货</text>
+      <text class="username">{{Message.nickname}}</text>
       <view class="Date">
         <image class="Icon" src="/image/DecorationIcon/date.png"></image>
         <text class="date">{{Message.date}}</text>
@@ -24,19 +24,23 @@
     <view wx:key wx:for="{{commentList}}" wx:for-item="item" class="commentContainer">
       <text class="commentNickname">{{item.nickname}}:</text>
       <view class='CommentAndDate'>
-         <text class="commentDetail">{{item.comment}}</text>
+         <text class="commentDetail">{{item.content}}</text>
          <text class="commentDate">{{item.date}}</text>
       </view>
     </view>
     <view class="borderView">
     </view>
-    <view class="inputBox" bindtap='reply'>
-      <text>说点什么</text>
+  
+  
+    <view class="inputBox">
+      <text>说点什么:</text>
       <view>
-       <textarea placeholder='说说你关于这个留言的看法' class="input" placeholder-class='placeInput'></textarea>
+       <textarea placeholder='想回复些什么吗' focus="{{focustext}}" bindtap='changeFocus'
+        bindinput='changeValue' class="input"></textarea>
       </view>
     </view>
 
-    <button class="sendButton" >发送</button>
+    <button class="sendButton" bindtap='HUIFU'> 发送 </button>
+
   </view>
 </view>

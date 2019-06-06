@@ -1,5 +1,5 @@
 var util = require('../../utils/util.js');
-
+const _this = this;
 Page({
 
   
@@ -7,25 +7,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    address: "芙蓉隧道",
-<<<<<<< HEAD
-    location:'南京',
-=======
-<<<<<<< HEAD
-    // MessageList: [
-    //   {
-    //     img: "/image/test.jpg",
-    //     title: "厦门印象",
-    //     nickname: "唯心主义蠢货",
-    //     date: "2019.05.17"
-    //   },
-    //   {
-    //     img: "/image/smoke.jpg",
-    //     title: "厦门印象",
-    //     nickname: "唯心主义蠢货",
-    //     date: "2019.05.17"
-=======
->>>>>>> bf4007f14ff9e2ce66c8d3e04e83e799fb8a641b
+    postAddress: "芙蓉隧道",
+    userLocation:'南京',
+    postIdlist:[],
+    requestNum:5,
+    maxIndex:0,
+    endIndex:0,
+    currentIndex:0,
     Messages:[],
     MessageList: [
       {
@@ -39,7 +27,6 @@ Page({
         title: "厦门印象",
         nickname: "唯心主义蠢货",
         date: "2019.05.17"
-<<<<<<< HEAD
 
       },
       {
@@ -49,8 +36,6 @@ Page({
         date: "2019.05.17"
       }
     ]
-=======
->>>>>>> 9431a5efe8c18254144e1fce1d9bd190b94e60c0
 
     //   },
     //   {
@@ -61,112 +46,252 @@ Page({
 
     //   }
     // ]
-    MessageList:""
->>>>>>> bf4007f14ff9e2ce66c8d3e04e83e799fb8a641b
+
   },
-  ShowDetail: function () {
-    //const Url = "../ShowDetail/ShowDetail?id = " + object.id;
+  ShowDetail: function (e) {
+    var id = e.currentTarget.dataset.id;
+    console.log(id);
+    const Url = "../ShowDetail/ShowDetail?id = " + id;
     wx.navigateTo({
-      url: "../ShowDetail/ShowDetail",
+      url: "../ShowDetail/ShowDetail?id=" + id,
+      success:function(res){
+        console.log('success');
+      },
+      fail:function(fail){
+        console.log('fail');
+        console.log(fail);
+      }
     })
+  },
+  addPost:function(){
+    const _this = this;
+    //四条留言看完上拉  
+    //再刷新两条
+    var returnList = this.data.postIdlist;
+    var currentIndex = _this.data.currentIndex;
+    console.log(returnList);
+    console.log(this.data.postIdlist);
+    console.log(this.data.requestNum);
+    var endIndex = (currentIndex + this.data.requestNum) < this.data.maxIndex ? (currentIndex + this.data.requestNum) : this.data.maxIndex;
+    //wx.setStorageSync('endIndex', endIndex)
+    _this.setData({
+      endIndex:endIndex
+    })
+    console.log('currentIndex:' + currentIndex);
+    console.log('endIndex:' + endIndex);
+    for (let i = currentIndex; i < endIndex; i++)//分别进行请求
+    {
+      wx.request({
+        url: 'https://whale.ringoer.com/post/getbyid',
+        data: {
+          postId: returnList[i],
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        method: 'GET',
+        success: function (res) {
+          var USERID = res.data.userId;
+          var POSTID = returnList[i];
+          var TITLE = res.data.title;
+          var IMG = "http://whale.ringoer.com" + res.data.picture;
+          var NICKNAME;
+
+
+          var postId = "Messages[" + i + "].postId";
+          var img = "Messages[" + i + "].img";
+          var title = "Messages[" + i + "].title";
+          var nickname = "Messages[" + i + "].nickname";
+          var date = "Messages[" + i + "].date";
+
+          var time = res.data.postTime.split('-');
+          var day = time[0] + '.' + time[1] + '.' + time[2][0] + time[2][1];
+          wx.request({
+            url: 'https://whale.ringoer.com/user/getnickname',
+            data: {
+              userId: USERID
+            },
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: function (res) {
+               NICKNAME = res.data;
+              _this.setData({
+                [postId]: POSTID,
+                [img]: IMG,
+                [title]: TITLE,
+                [nickname]: NICKNAME,
+                [date]: day
+              });
+            },
+            fail: function () {
+
+            }
+          });
+        },
+        fail:function(fail){
+
+        },
+      })
+    }
+    currentIndex = endIndex;
+    this.setData({
+      currentIndex:currentIndex
+    })
+    console.log("Refresh");
+    if (currentIndex >= this.data.maxIndex) {
+      wx.showToast({
+        title: '已经没有留言喽!',
+        duration: 1000
+      })
+      return;
+    }
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-<<<<<<< HEAD
-    const _this = this;
-    wx.request({
-      url: "https://whale.ringoer.com/post/getByloc",
-      data:{
-        loca:"曾厝垵"
-      },
-      header:{
-        'content-type': 'application/json'
-      },
-      success:function(res){
-        // _this.setData({
-        //   MessageList:res.data.list,
-        // })’
-        console.log(res.data);
-=======
+
     const  _this = this;
-
-    /* 判断我是否留言 */
-    var myMessage = {};
-    if(wx.getStorageSync('myMessage'))//判断我是否留言
-    {
-      myMessage = JSON.parse(wx.getStorageSync('myMessage'));
-      console.log(options);
-      _this.data.Messages.push(myMessage);
-    }//如果留言  则把我的留言压入
-
-
+    var postAddress = wx.getStorageSync('street_number');
+    var userlocation
+      _this.setData({
+        postAddress: postAddress
+      })
+    console.log(postAddress);
     /*判断是否有留言的缓存  如果有则显示  如果无  则request
       ps:是否需要根据时间进行删除    
      */
-    var Messages  = wx.getStorageSync('Messsages');//获得Messages缓存
-    wx.request({ // 根据城市请求postId
-      url: 'https://whale.ringoer.com/post/getbyloc',
-      method:'GET',
-      data:{
-        loc:_this.data.location,
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      success:function(res){
-        console.log(res.data);
-        var returnList = res.data;//获得postId数组
-        for (let i = 0; i < returnList.length; i++)//分别进行请求
-        {
-          wx.request({
+    //获得Messages缓存
+    // var oldMessage = wx.getStorageSync('Messages');
+    // if (oldMessage != null)
+    // {
+    //   oldMessage = JSON.parse(oldMessage);
+    //   var oldLength = oldMessage.length;
+    //   console.log(oldLength);
+    //   try{
+    //     _this.setData({
+    //       Messages: _this.data.Messages.concat(oldMessage),
+    //       maxIndex: oldLength
+    //     })
+    //     console.log(_this.data.Messages);
+    //   }
+    //   catch(e){
+    //     console.log(e); 
+    //   }
+    //   wx.setStorage({
+    //     key: 'Message',
+    //     data: null,
+    //   })
+    //   console.log(_this.data.Messages);
+    // }
+      wx.request({ // 根据城市请求postId
+        url: 'https://whale.ringoer.com/post/getbyloc',
+        method: 'GET',
+        data: {
+          loc: _this.data.postAddress,
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        success: function (res) {
+          console.log(res.data);
+          var returnList = res.data;//获得postId数组
+          _this.setData({
+            postIdlist:returnList,
+            maxIndex: _this.data.maxIndex+returnList.length
+          })
+          var REQUESTNUM = _this.data.requestNum;
+          var CURRENTINDEX = _this.data.currentIndex;
+          var ENDINDEX = _this.data.endIndex;
+          ENDINDEX = (CURRENTINDEX + REQUESTNUM) < _this.data.maxIndex ? (CURRENTINDEX + REQUESTNUM) : _this.data.maxIndex;
+          _this.setData({
+            endIndex:ENDINDEX
+          });
+
+          console.log('currentIndex:'+CURRENTINDEX);
+          console.log('endIndex:'+ENDINDEX);
+          console.log(returnList);
+          for (let i = CURRENTINDEX; i < ENDINDEX; i++)//分别进行请求
+          {
+            wx.request({
               url: 'https://whale.ringoer.com/post/getbyid',
               data: {
-                postId:returnList[i],
+                postId: returnList[i],
               },
               header: {
-              'content-type': 'application/x-www-form-urlencoded'
+                'content-type': 'application/x-www-form-urlencoded'
               },
               method: 'GET',
-              success: function(res) {
-                console.log(res.data);
+              success: function (res) {
+                console.log(res);
+                var NICKNAME;
+                
+                var postId = "Messages[" + i + "].postId";
                 var img = "Messages[" + i + "].img";
                 var title = "Messages[" + i + "].title";
                 var nickname = "Messages[" + i + "].nickname";
                 var date = "Messages[" + i + "].date";
 
+                var POSTID = returnList[i];
+                var IMG = "http://whale.ringoer.com" + res.data.picture;
+                var TITLE = res.data.title;
                 var time = res.data.postTime.split('-');
-                var day = time[2][0]+time[2][1]
+                var DAY = time[0] + '.' + time[1] + '.' + time[2][0] + time[2][1];
+                wx.request({
+                  url: 'https://whale.ringoer.com/user/getnickname',
+                  data: {
+                    userId: res.data.userId
+                  },
+                  header: {
+                    'content-type': 'application/x-www-form-urlencoded'
+                  },
+                  success: function (res) {
+                    console.log(res.data);
+                    NICKNAME = res.data;
+                    _this.setData({
+                      [postId]: POSTID,
+                      [img]: IMG,
+                      [title]: TITLE,
+                      [nickname]: NICKNAME,
+                      [date]: DAY
+                    });
+                  },
+                  fail: function (fail) {
+                    console.log(fail);
+                  },
+                  complete:function(){
+                    
+                  }
+                })
 
-                console.log(time);
-                  _this.setData({
-                      [img]: "http://whale.ringoer.com" + res.data.picture,
-                      [title]: res.data.title,
-                      [nickname]: res.data.userId,
-                      [date]: time[0]+'.'+time[1]+'.'+day
-                  });
               },
-                fail: function(res) {},
-                complete: function(res) {
-                  console.log(_this.data.Messages);
-                  wx.setStorageSync('Messages', JSON.stringify(_this.data.Messages))
-                },
+              fail: function (fail) { 
+                console.log(fail)
+              },
+              complete: function (res) {
+                
+                // wx.setStorage({
+                //   key: 'Messages',
+                //   data: JSON.stringify(_this.data.Messages),
+                // })
+              },
+            })
+          }
+          CURRENTINDEX = ENDINDEX;
+          //wx.setStorageSync('currentIndex', currentIndex);
+          _this.setData({
+            currentIndex:CURRENTINDEX
           })
-        }
         },
-      fail:function(fail){
-        console.log(fail);
-        console.log('fail');
-<<<<<<< HEAD
-      },
-      complete:function(){
-        
-=======
->>>>>>> 9431a5efe8c18254144e1fce1d9bd190b94e60c0
->>>>>>> bf4007f14ff9e2ce66c8d3e04e83e799fb8a641b
-      }
-    })
+        fail: function (fail) {
+          console.log(fail);
+        },
+        complete: function () {
+          
+        }
+      });
+
     wx.showNavigationBarLoading();
     wx.setNavigationBarTitle({
       title: '留言墙',
@@ -216,8 +341,65 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+
+    const _this = this;
     //四条留言看完上拉  
     //再刷新两条
+    var returnList = this.data.postIdlist;
+    var currentIndex = wx.getStorageSync('currentIndex');
+
+    var endIndex = (currentIndex + this.data.requestNum) < this.data.maxIndex ? (currentIndex + this.data.requestNum) : this.data.maxIndex;
+    wx.setStorageSync('endIndex', endIndex);
+
+    if (currentIndex >= this.data.maxIndex) {
+      wx.showToast({
+        title: '已经没有留言喽!',
+        duration: 1000
+      })
+      return ;
+    }
+    console.log('currentIndex:' + currentIndex);
+    console.log('endIndex:' + endIndex);
+
+    for (let i = currentIndex; i < endIndex; i++)//分别进行请求
+    {
+      wx.request({
+        url: 'https://whale.ringoer.com/post/getbyid',
+        data: {
+          postId: returnList[i],
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        method: 'GET',
+        success: function (res) {
+          var postId = "Messages[" + i + "].postId";
+          var img = "Messages[" + i + "].img";
+          var title = "Messages[" + i + "].title";
+          var nickname = "Messages[" + i + "].nickname";
+          var date = "Messages[" + i + "].date";
+
+          var time = res.data.postTime.split('-');
+          var day = time[0] + '.' + time[1] + '.' + time[2][0] + time[2][1];
+          _this.setData({
+            [postId]: returnList[i],
+            [img]: "http://whale.ringoer.com" + res.data.picture,
+            [title]: res.data.title,
+            [nickname]: res.data.userId,
+            [date]: day
+          });
+        },
+        fail: function (res) { },
+        complete: function (res) {
+          wx.setStorage({
+            key: 'Messages',
+            data: JSON.stringify(_this.data.Messages),
+          })
+        },
+      })
+    }
+    currentIndex = endIndex;
+    wx.setStorageSync('currentIndex', currentIndex);
     console.log("Refresh");
   },
 
@@ -228,4 +410,3 @@ Page({
 
   }
 })
-

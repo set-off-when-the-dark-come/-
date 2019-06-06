@@ -1,17 +1,22 @@
 var util = require('../../utils/util.js');
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    userInfo: null,
+    userId: null,
+    date:"",
+    userLocation:'杭州',
+    postAddress:'',
     title: "",
     content: "",
     centerImg:"block",
     focus1: false,
     focus2: false,
-    postId:'',
-    path:'/image/DecorationIcon/camera.jpg',
+    imagePath:'/image/DecorationIcon/camera.jpg'
   },
   changeFocus1:function(){
     this.setData({
@@ -57,7 +62,7 @@ Page({
       sourceType: ['album', 'camera'],
       success: function (res) {
         _this.setData({
-          path:res.tempFilePaths,//本次上传的临时路径
+          imagePath:res.tempFilePaths,//本次上传的临时路径
         })
       },
       fail:function(fail){
@@ -69,7 +74,7 @@ Page({
     var _this = this;
     var content = this.data.content;
     var title = this.data.title;
-    var imagePath = this.data.path;
+    var imagePath = this.data.imagePath;
     var id;
     if(imagePath === '')
     {
@@ -84,15 +89,16 @@ Page({
     }
     if(title!== '' && content !== '' && imagePath !== '')
     {
+      console.log(imagePath);
       wx.request({
-        url: 'https://whale.ringoer.com:443/userloc/add',
+        url: 'https://whale.ringoer.com/userloc/add',
         method: 'POST',
         header: {
           'content-type': 'application/x-www-form-urlencoded'
         },
         data: {
-          userid: 'cw',
-          locationName: '杭州',
+          userid: _this.data.userId,
+          locationName: _this.data.location,
         },
         success: function (res) {
           console.log(res);
@@ -100,38 +106,56 @@ Page({
         fail: function (fail) {
           console.log(fail);
         },
+        complete:function(){
+          wx.request({
+            url: 'https://whale.ringoer.com/user/getnum',
+            data:{
+              userId:app.globalData.userId
+            },
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            success:function(res){
+              wx.setStorageSync('punches', res.data)
+            },
+            fail:function(fail){
+
+            },
+          })
+
+
+        }
       }),
 
 
         wx.request({
-        url: 'https://whale.ringoer.com:443/post/new',
+        url: 'https://whale.ringoer.com:443/post/new',//发帖子
         method: 'POST',
         header: {
           'content-type': 'application/x-www-form-urlencoded'
         },
         data: {
-          title: title,
-          content: content,
-          location: '南京',
-          userId: 'cw',
+          title: title,//标题
+          content: content,//内容
+          location: _this.data.location,//用户所在地点
+          userId: _this.data.userId,//用户ID
         },
         success: function (res) {
           console.log(res.data);
           _this.setData({
-            postId:res.data,
+            postId:res.data,//返回POSTID
           }),
-          upload(_this, imagePath, res.data);
+          upload(_this, imagePath[0], res.data);//上传路径和postid
+          // var myMessgae = {
+          //   nickname:app.globalData.userInfo.nickname,
+          //   postId: res.data,
+          //   img: imagePath[0],
+          //   title: _this.data.title,
+          //   date: util.formatYMD(new Date())
+          //   }
           wx.navigateTo({
-            url: '../SeeMessage/SeeMessage',
+            url: '../SeeMessage/SeeMessage',//跳转上传postId
             success: function (res) {
-              var myMessgae = {
-                postId : res.data,
-                nickname: this.globalData.nickname,
-                title: _this.data.title,
-                img: _this.data.imagePath,
-                date: util.formatYMD(new Date())
-              }
-              wx.setStorageSync('myMessage', JSON.stringify(myMessgae));
               console.log('发送成功');
             },
             fail: function (res) { },
@@ -153,6 +177,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const _this = this;
+    var userLocation = wx.getStorageSync('userLocation');
+    var postAddress = wx.getStorageSync('street_number');
+    if (app.globalData.userInfo) {
+      console.log(app.globalData.userId);
+      _this.setData({
+        userInfo: app.globalData.userInfo,
+        userId: app.globalData.userId,
+        userLocation : userLocation,
+        postAddress:postAddress
+      })
+    }
+
+
+    var userLocation = wx.getStorageSync('street_number');
+    var TIME = util.formatDate(new Date());
+    this.setData({
+      date: TIME,
+      location: userLocation
+    })
     wx.showNavigationBarLoading();
     wx.setNavigationBarTitle({
       title: '写留言',
@@ -216,7 +260,7 @@ function upload(page, path,postId) {
     formData:{
       'postId':postId
     },
-    filePath: path[0],
+    filePath: path,
     name: 'file',
     header: {
       "Content-Type": "multipart/form-data"

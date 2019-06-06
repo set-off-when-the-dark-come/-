@@ -10,11 +10,12 @@
 		"minified": true,
 		"newFeature": true,
 		"autoAudits": false,
+		"uglifyFileName": true,
 		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
-	"appid": "wx4ae56bd4860baded",
+	"appid": "wxd8c427c0a775ed46",
 	"projectname": "6.%E5%B0%8F%E7%A8%8B%E5%BA%8F",
 	"debugOptions": {
 		"hidedInDevtools": []

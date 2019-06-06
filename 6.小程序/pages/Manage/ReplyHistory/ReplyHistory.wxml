@@ -1,0 +1,23 @@
+<view>
+  <block wx:if="{{isHave==false}}">
+    <view class='noMessage'>
+      <text>还没有回复过别人哦</text>
+    </view>
+  </block>
+<block wx:else>
+<view class="listenListContainer">
+  <scroll-view scroll-y scroll-into-view='{{toView}}'>
+      <view wx:for="{{postList}}" data-id='{{item.postId}}' class="listenMessageContainer" bindtap='jumpToDetail'>
+        <view class="UserInformationContainer">
+          <image class="postImg" mode='scaleToFill' src="{{item.picture}}"/>
+          <text class="mainText">{{item.title}}</text>
+          <view class='locationAndDate'>
+              <image class="iconLocation" src="{{iconLocation}}"/>
+              <text class="location">{{item.date}}-{{item.dateLocation}}</text>
+          </view>
+        </view>
+      </view>
+  </scroll-view>
+</view>
+</block>
+</view>

@@ -1,5 +1,5 @@
 .Main{
-  height: 1050rpx;
+  height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,26 +13,32 @@
 {
   opacity: 0;
   height: 130rpx;
+  display: flex;
+  align-items: center;
 }
 .date{
   font-size: 100rpx;
   font-weight: lighter;
 }
 .address{
+  height: 40rpx;
+  padding: 0rpx;
+  margin-top: 2vh;
   margin-left: 8rpx;
-  font-size: 30rpx;
+  font-size: 36rpx;
   font-weight: lighter;
   letter-spacing: 4rpx;
   color: #333333;
 }
 .addressImg{
+  margin-top: 3vh;
   margin-left: 30rpx;
-  width: 20rpx;
-  height: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
 }
 
 .MainText{
-  height: 75%;
+  height: 75vh;
   width: 400rpx;
   display: flex;
   flex-direction: column;
@@ -41,14 +47,14 @@
 }
 
 .first{
-  translate: 0rpx 60rpx;
+  transform: translateY(60rpx);
   opacity: 0;
   writing-mode: vertical-rl;
   display: block;
   margin-left:100rpx;
 }
 .second{
-  translate: 0rpx -60rpx;  
+  transform: translateY(-60rpx);
   opacity: 0;
   writing-mode: vertical-rl;
   display: block;
@@ -67,11 +73,11 @@
   background-color: #666666;
 }
 .self1{
-  translate: 0rpx 60rpx;
+  transform: translateY(60rpx);
   margin-left: 180rpx;
 }
 .self2{
-  translate: 0rpx -60rpx;
+  transform: translateY(-60rpx);
   margin-left: -180rpx;
 }
 
@@ -86,8 +92,8 @@
   width: 500rpx;
 }
 .JumpButton image{
-  width: 35rpx;
-  height: 35rpx;
+  width: 40rpx;
+  height: 40rpx;
 }
 .JumpButton text{
   font-size: 28rpx;
@@ -101,5 +107,5 @@
   border-radius: 40rpx;
   width: 185rpx;
   height: 80rpx;
-  box-shadow: 10rpx 5rpx 10rpx #9a9ea7
+  box-shadow: 10rpx 5rpx 10rpx #666666
 }

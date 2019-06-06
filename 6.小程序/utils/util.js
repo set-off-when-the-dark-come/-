@@ -25,15 +25,9 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
-const spliceNumber = n => {
-  if(n.length > 5)
-  {
-    return n.splice(2);
-  }
-}
 
 module.exports = {
   formatTime: formatTime,
   formatDate: formatDate,
-  spliceNumber: spliceNumber
+  formatYMD: formatYMD,
 }

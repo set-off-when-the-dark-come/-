@@ -5,16 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo:{},
+    userInfo:null,
+    userId:null,
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    userHeadSrc:"../../images/UI/userHead.png",
-    userName:"唯心主义蠢货",
-    userDetail:"我的资料",
-    iconSeeSrc:"../../images/UI/iconSee.png",
-    iconArrowSrc:"../../images/UI/iconArrow.png",
-    iconSaySrc: "../../images/UI/iconSay.png",
-    iconSettingSrc: "../../images/UI/iconSetting.png",
+    iconSeeSrc:"../../image/DecorationIcon/iconSee.png",
+    iconArrowSrc:"../../image/SetIcon/arrow.png",
+    iconSaySrc: "../../image/DecorationIcon/iconSay.png",
+    iconSettingSrc: "../../image/DecorationIcon/iconSetting.png",
   },
 
   /**
@@ -22,61 +20,117 @@ Page({
    */
   jumpToSee:function()
   {
-    wx:wx.navigateTo({
-      url: '../Manage/History/History',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
+    if (app.globalData.userInfo)
+    {
+      wx: wx.navigateTo({
+      url: '../Manage/ReplyHistory/ReplyHistory',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+  })
+    }
   },
   jumpToSay: function () {
-    wx: wx.navigateTo({
-      url: '../Manage/History/History',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
+    if(app.globalData.userInfo)
+    {
+      wx: wx.navigateTo({
+        url: '../Manage/History/History',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
   },
   jumpToSetting: function () {
-    wx: wx.navigateTo({
-      url: 'Setting/Setting',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+    if(app.globalData.userInfo)
+    {
+      wx: wx.navigateTo({
+        url: 'Setting/Setting',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
+  },
+  getUserInfo:function(){
+    const _this = this;
+    wx.getSetting({
+      success: res => {
+        console.log(res);
+        if (res.authSetting['scope.userInfo']) {
+          console.log('获取用户信息');
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              // 可以将 res 发送给后台解码出 unionId
+              app.globalData.userInfo = res.userInfo
+              _this.setData({
+                userInfo: res.userInfo,
+              })
+              var userInfo = res.userInfo;
+              wx.login({
+                success: res => {
+                  console.log(userInfo.nickName)
+                  var logincode = res.code;
+                  console.log(userInfo.nickName);
+                  console.log(res.code);
+                  wx.request({
+                    url: 'https://whale.ringoer.com/api/login',
+                    data: {
+                      code: logincode,
+                      nickname: userInfo.nickName
+                    },
+                    method:'POST',
+                    header: {
+                      'content-type': 'application/x-www-form-urlencoded'
+                    },
+                    success: res => {
+                      app.globalData.userId = res.data.userId;
+                      app.globalData.punches = res.data.punches;
+                      console.log(app.globalData.punches);
+                      wx.setStorageSync('punches', app.globalData.punches);
+                    },
+                    fail: res => {
+                      console.log(res);
+                    }
+                  })
+                }
+              })
+
+              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+              // 所以此处加入 callback 以防止这种情况
+              if (this.userInfoReadyCallback) {
+                this.userInfoReadyCallback(res)
+              }
+            }
+          })
+        }
+      },
+      fail: function (fail) {
+        console.log(fail);
+      },
+      complete:function(){
+
+      }
     })
   },
   onLoad: function () {
+    const _this = this;
+    if(app.globalData.userInfo)
+    {
+        _this.setData({
+          userInfo:app.globalData.userInfo,
+          userId:app.globalData.userId,
+        })
+    }
+
+    //当网络延迟时 回调的处理 else if() app.userInfoReadyCallback
+
     wx.showNavigationBarLoading();
     wx.setNavigationBarTitle({
       title: '个人',
     });
 
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

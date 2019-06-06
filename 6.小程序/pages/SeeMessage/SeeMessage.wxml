@@ -1,10 +1,13 @@
 <view class='Page'>
 <view class='Address'>
   <image class='TitleIcon ' src='/image/DecorationIcon/location.png'></image>
-  <text>{{address}}</text>
+  <text>{{postAddress}}</text>
 </view>
-<scroll-view scroll-y="true" style='height:1140rpx'>
-<view wx:for="{{Messages}}" wx:key="{{item.img}}" class='AMessage' bindtap='ShowDetail' >
+<view wx:if="{{maxIndex==0}}" class='noMessage'>
+  <text>这里还没有人留言哦</text>
+</view>
+<scroll-view wx:else scroll-y="true" bindscrolltolower='addPost' style='height:93vh'>
+<view wx:for="{{Messages}}" wx:key="{{item.img}}" data-id='{{item.postId}}' class='AMessage' bindtap='ShowDetail' >
     
     <text>{{item.nickname}}:</text>
 
@@ -25,5 +28,4 @@
 
 </view>
 </scroll-view>
-
 </view>

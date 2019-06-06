@@ -1,14 +1,13 @@
 // pages/listenList/listenList.js
 const site = 'http://whale.ringoer.com';
 const app = getApp();
-
 Page({
   jumpToDetail: function (e) {
     console.log(e);
     var id = e.currentTarget.dataset.id;
     console.log(id);
     wx.navigateTo({
-      url: '../../ShowDetail/ShowDetail?id='+id,
+      url: '../../ShowDetail/ShowDetail?id=' + id,
     })
   },
   /**
@@ -18,7 +17,7 @@ Page({
     userInfo: null,
     userId: null,
     isHave:false,
-    postList:[],
+    replyList: [],
     scrollHeight: '100vh',
     iconLocation: "../../../image/DecorationIcon/location.png"
   },
@@ -34,52 +33,43 @@ Page({
         userId: app.globalData.userId,
       })
     }
-    else {
-      wx.showModal({
-        title: '提示',
-        content: '还没有登录哦！',
-      })
-    }
-
 
     wx.request({
-      url: 'https://whale.ringoer.com/post/getbyuser',
-      method:'GET',
-      header:{
+      url: 'https://whale.ringoer.com/reply/getbyuser',
+      method: 'GET',
+      header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
-      data:{
-        userId:_this.data.userId
+      data: {
+        userId: _this.data.userId
       },
-      success:function(res){
+      success: function (res) {
+        var returnList = res.data;
         if(res.data.length>0)
         {
           _this.setData({
             isHave:true
           })
         }
-        var returnList = res.data;
-        for(let i = 0;i<returnList.length;i++)
-        {
-          var postId = "postList[" + i + '].postId';
-          var date = "postList[" + i + '].date';
-          var location = "postList[" + i +'].dateLocation';
-          var title = "postList["+ i + '].title';
-          var picture = "postList[" + i + '].picture'
+        for (let i = 0; i < returnList.length; i++) {
+          var postId = "replyList[" + i + '].postId';
+          var desUserID = "replyList[" + i + '].desUserID';
+          var location = "replyList[" + i + '].dateLocation';
+          var content = "replyList[" + i + '].content';
 
           var time = returnList[i].postTime.split('-');
           var day = time[0] + '.' + time[1] + '.' + time[2][0] + time[2][1];
           _this.setData({
-            [postId]:returnList[i].postId,
-            [location]:returnList[i].location,
-            [title]:returnList[i].title,
-            [picture]:site+returnList[i].picture,
+            [postId]: returnList[i].postId,
+            [location]: returnList[i].location,
+            [desUserID]: returnList[i].desUserID,
+            [content]: returnList[i].replyContent,
             [date]: day
           })
         }
         console.log(res);
       },
-      fail:function(fail){
+      fail: function (fail) {
         console.log(fail);
       }
     })
